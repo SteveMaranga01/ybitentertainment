@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\ybitentertainment\\logs\\.e4b9670af6af62f8f2a0f27dd9b97e8c6e61f63e-audit.json",
+    "files": [
+        {
+            "date": 1784642010522,
+            "name": "C:\\ybitentertainment\\logs\\mcp-puppeteer-2026-07-21.log",
+            "hash": "93fa57852d02ab18be3e3d93cc3df8279b9ce5404087e40f2bcbb903e4224f2e"
+        }
+    ],
+    "hashType": "sha256"
+}
