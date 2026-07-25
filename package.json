@@ -14,10 +14,13 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@modelcontextprotocol/server-puppeteer": "^2025.5.12",
+    "@playwright/mcp": "^0.0.78",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "chrome-devtools-mcp": "^1.6.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "shadcn": "^4.13.1",
