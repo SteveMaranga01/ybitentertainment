@@ -3,7 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { SITE, NAV_LINKS } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
+import { FaFacebook, FaInstagram, FaXTwitter} from "react-icons/fa6";
 
 const footerLinks = [
   {
@@ -53,7 +54,7 @@ export default function SiteFooter() {
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-secondary-dark transition-colors"
                 aria-label="Instagram"
               >
-                <Instagram className="w-5 h-5" />
+                <FaInstagram className="w-5 h-5" />
               </a>
               <a
                 href={SITE.social.twitter}
@@ -62,7 +63,7 @@ export default function SiteFooter() {
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-secondary-dark transition-colors"
                 aria-label="Twitter"
               >
-                <Twitter className="w-5 h-5" />
+                <FaXTwitter className="w-5 h-5" />
               </a>
               <a
                 href={SITE.social.facebook}
@@ -71,7 +72,7 @@ export default function SiteFooter() {
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-secondary-dark transition-colors"
                 aria-label="Facebook"
               >
-                <Facebook className="w-5 h-5" />
+                <FaFacebook className="w-5 h-5" />
               </a>
             </div>
           </div>
