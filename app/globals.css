@@ -1,26 +1,213 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colors */
+  --color-primary: #C9A962;
+  --color-primary-light: #D4B87A;
+  --color-primary-dark: #B8944D;
+  
+  --color-secondary: #1A1F3A;
+  --color-secondary-light: #252B4A;
+  --color-secondary-dark: #111429;
+  
+  --color-accent: #E8B4B8;
+  --color-accent-light: #F0CDD0;
+  --color-accent-dark: #D99499;
+  
+  --color-background: #F8F6F3;
+  --color-background-warm: #FDFBF7;
+  --color-background-dark: #1A1A1A;
+  --color-background-darker: #121212;
+  
+  --color-text-primary: #0A0A0A;
+  --color-text-secondary: #4A4A4A;
+  --color-text-muted: #6B6B6B;
+  --color-text-light: #F5F5F5;
+  --color-text-light-secondary: #BDBDBD;
+  
+  --color-border: #E5E5E5;
+  --color-border-dark: #333333;
+  
+  /* Spacing */
+  --spacing-section: 120px;
+  --spacing-section-mobile: 64px;
+  --spacing-container: 1440px;
+  --spacing-gutter: 24px;
+  --spacing-gutter-desktop: 80px;
+  
+  /* Typography */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-gold: 0 4px 14px 0 rgba(201, 169, 98, 0.39);
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+  
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-bg-dark: rgba(26, 26, 26, 0.85);
+  --glass-blur: 20px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--color-primary);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-light: var(--color-secondary-light);
+  --color-secondary-dark: var(--color-secondary-dark);
+  --color-accent: var(--color-accent);
+  --color-accent-light: var(--color-accent-light);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-background: var(--color-background);
+  --color-background-warm: var(--color-background-warm);
+  --color-background-dark: var(--color-background-dark);
+  --color-background-darker: var(--color-background-darker);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-light: var(--color-text-light);
+  --color-text-light-secondary: var(--color-text-light-secondary);
+  --color-border: var(--color-border);
+  --color-border-dark: var(--color-border-dark);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+/* Images */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Glass Effect Utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+.glass-dark {
+  background: var(--glass-bg-dark);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+/* Container */
+.container-custom {
+  max-width: var(--spacing-container);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-gutter);
+  padding-right: var(--spacing-gutter);
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: var(--spacing-gutter-desktop);
+    padding-right: var(--spacing-gutter-desktop);
+  }
+}
+
+/* Section Spacing */
+.section-spacing {
+  padding-top: var(--spacing-section-mobile);
+  padding-bottom: var(--spacing-section-mobile);
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    padding-top: var(--spacing-section);
+    padding-bottom: var(--spacing-section);
+  }
+}
+
+/* Gold Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hover Effects */
+.hover-gold {
+  transition: all var(--transition-base);
+}
+
+.hover-gold:hover {
+  color: var(--color-primary);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-light);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-secondary-dark);
 }
