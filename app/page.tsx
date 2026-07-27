@@ -1,4 +1,4 @@
-import { HomePage } from "@/frontend/sections/home-page";
+import { HomePage } from "@/app/home/home-page";
 
 export default function Home() {
   return <HomePage />;
