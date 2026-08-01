@@ -11,11 +11,15 @@
     "prefix": ""
   },
   "aliases": {
-    "components": "@/frontend/components",
-    "utils": "@/frontend/lib/utils",
-    "ui": "@/frontend/components/ui",
-    "lib": "@/frontend/lib",
-    "hooks": "@/frontend/hooks"
+    "components": "@/components",
+    "utils": "@/components/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/components/lib",
+    "hooks": "@/components/hooks"
   },
-  "iconLibrary": "lucide"
+  "iconLibrary": "lucide",
+
+  "registries": {
+    "@react-bits": "https://reactbits.dev/r/{name}.json"
+  }
 }
