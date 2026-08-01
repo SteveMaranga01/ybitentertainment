@@ -10,6 +10,15 @@
         "mcp"
       ]
     },
+    "reactbits": {
+      "enabled": true,
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@react-bits/mcp"
+      ]
+    },
     "stitch": {
       "type": "remote",
       "url": "https://stitch.googleapis.com/mcp",
