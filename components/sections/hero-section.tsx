@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import GradualBlur from "@/components/GradualBlur";
 
 export function HeroSection() {
   return (
@@ -11,7 +12,7 @@ export function HeroSection() {
         loop
         playsInline
       />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,8,8,0.96),rgba(8,8,8,0.45)_52%,rgba(8,8,8,0.88)),linear-gradient(180deg,rgba(8,8,8,0.28),rgba(8,8,8,1))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,8,8,0.96),rgba(8,8,8,0.45)_52%,rgba(8,8,8,0.88)),linear-gradient(180deg,rgba(8,8,8,0.28),rgba(8,8,8,1))]/70" />
 
       <div className="ybit-container relative z-10 flex min-h-[100svh] items-end pb-12 pt-32 md:pb-20">
         <div className="grid w-full gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
@@ -20,7 +21,7 @@ export function HeroSection() {
               Westlands, Nairobi · Est. 25 August 2019
             </p>
             <h1 className="font-serif text-6xl font-semibold leading-[0.92] text-white md:text-8xl lg:text-[128px]">
-              Events with a cinematic pulse.
+                Events with a cinematic pulse.
             </h1>
             <p className="mt-8 max-w-2xl text-base leading-8 text-ybit-muted md:text-lg">
               Ybit Entertainment designs, produces, and hosts celebrations that

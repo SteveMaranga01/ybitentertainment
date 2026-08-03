@@ -30,7 +30,7 @@ export function PageHero({
         className="object-cover opacity-55"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,8,8,0.96),rgba(8,8,8,0.55)_55%,rgba(8,8,8,0.9)),linear-gradient(180deg,rgba(8,8,8,0.18),rgba(8,8,8,1))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,8,8,0.96),rgba(8,8,8,0.55)_55%,rgba(8,8,8,0.9)),linear-gradient(180deg,rgba(8,8,8,0.18),rgba(8,8,8,1))]/20" />
       <div className="ybit-container relative z-10 flex min-h-[calc(78svh-7rem)] items-end pb-14">
         <div className="max-w-5xl">
           <p className="text-xs font-bold uppercase tracking-[0.34em] text-ybit-gold">
