@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useState } from "react";
 import { FaAngleRight } from "react-icons/fa6";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
@@ -33,28 +33,18 @@ const navItems = [
   { href: "/gallery", label: "Gallery" },
 ];
 
-const menuVariants = {
-  hidden: { opacity: 0, y: 10, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    scale: 1,
-    transition: { type: "spring", stiffness: 300, damping: 25, mass: 0.5 }
-  },
+const menuVariants: Variants = {
+  hidden: { opacity: 0, y: -10, transition: { duration: 0.2 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
+};
+const mobileupVariants: Variants = {
+  hidden: { opacity: 0, y: -10, transition: { duration: 0.5 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const mobileVariants = {
-  hidden: { opacity: 0, height: 0 },
-  visible: { 
-    opacity: 1, 
-    height: "auto", 
-    transition: { type: "spring", stiffness: 300, damping: 30 } 
-  },
-};
-
-const mobileupVariants = {
-  hidden: { opacity: 0, y: -10 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+const mobileVariants: Variants = {
+  hidden: { opacity: 0, height: 0, transition: { duration: 0.3 } },
+  visible: { opacity: 1, height: "auto", transition: { duration: 0.3 } },
 };
 
 export function SiteHeader() {
@@ -79,11 +69,11 @@ export function SiteHeader() {
             >
               <Link
                 href={item.href}
-                className="hover:text-white flex items-center gap-1"
+                className="hover:text-white flex nav items-center gap-1"
               >
                 {item.label}
                 {item.children && (
-                  <FaAngleRight className="text-[10px] group-hover:rotate-90 transition-transform" />
+                  <FaAngleRight className="text-[10px] group-hover:rotate-90 transition-transform duration-300" />
                 )}
               </Link>
 
@@ -100,7 +90,7 @@ export function SiteHeader() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block px-6 py-2.5 hover:text-white hover:bg-white/5 transition-colors text-[11px]"
+                        className="block px-6 py-2.5 hover:text-white hover:translate-x-1 transition-colors text-[11px] duration-300"
                       >
                         {child.label}
                       </Link>

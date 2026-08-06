@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { upcomingEvents } from "@/components/data/site";
+import type { upcomingEvents } from "@/lib/data/site";
 
 type EventItem = (typeof upcomingEvents)[number];
 

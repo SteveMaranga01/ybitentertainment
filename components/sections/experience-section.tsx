@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { experiences } from "@/components/data/home";
+import { experiences } from "@/lib/data/home";
 import { SectionIntro } from "@/components/sections/section-intro";
 
 export function ExperienceSection() {

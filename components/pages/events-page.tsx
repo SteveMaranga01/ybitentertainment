@@ -1,7 +1,7 @@
-import { EventCard } from "@/components/cards/event-card";
-import { OfferBanner } from "@/components/page/offer-banner";
-import { PageHero } from "@/components/page/page-hero";
-import { upcomingEvents } from "@/components/data/site";
+import { EventCard } from "@/components/ui/event-card";
+import { OfferBanner } from "@/components/ui/offer-banner";
+import { PageHero } from "@/components/ui/page-hero";
+import { upcomingEvents } from "@/lib/data/site";
 import { SectionIntro } from "@/components/sections/section-intro";
 
 export function EventsPage() {

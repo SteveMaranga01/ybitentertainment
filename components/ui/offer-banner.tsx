@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { offers } from "@/components/data/site";
+import { offers } from "@/lib/data/site";
 
 export function OfferBanner({ index = 0, variant = "simple" }: { index?: number, variant?: "simple" | "action" }) {
   const offer = offers[index % offers.length];

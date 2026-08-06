@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { teamMembers } from "@/components/data/site";
+import type { teamMembers } from "@/lib/data/site";
 
 type TeamMember = (typeof teamMembers)[number];
 

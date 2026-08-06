@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { OfferBanner } from "@/components/page/offer-banner";
-import { PageHero } from "@/components/page/page-hero";
+import { OfferBanner } from "@/components/ui/offer-banner";
+import { PageHero } from "@/components/ui/page-hero";
 import { Button } from "@/components/ui/button";
-import { eventCategories, galleryImages, planningPackages } from "@/components/data/site";
+import { eventCategories, galleryImages, planningPackages } from "@/lib/data/site";
 import { SectionIntro } from "@/components/sections/section-intro";
 
 export function CategoryPage({ slug }: { slug: string }) {

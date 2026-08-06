@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { galleryImages } from "@/components/data/home";
+import { galleryImages } from "@/lib/data/home";
 
 const marqueeItems = ["Weddings", "Festivals", "Birthdays", "Merch", "Tickets", "Westlands"];
 

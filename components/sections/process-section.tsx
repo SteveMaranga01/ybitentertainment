@@ -1,4 +1,4 @@
-import { processSteps } from "@/components/data/home";
+import { processSteps } from "@/lib/data/home";
 import { SectionIntro } from "@/components/sections/section-intro";
 
 export function ProcessSection() {

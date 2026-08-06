@@ -1,7 +1,7 @@
 import { FrontendFormShell } from "@/components/forms/frontend-form-shell";
-import { OfferBanner } from "@/components/page/offer-banner";
-import { PageHero } from "@/components/page/page-hero";
-import { sponsors, sponsorTiers } from "@/components/data/site";
+import { OfferBanner } from "@/components/ui/offer-banner";
+import { PageHero } from "@/components/ui/page-hero";
+import { sponsors, sponsorTiers } from "@/lib/data/site";
 import { SectionIntro } from "@/components/sections/section-intro";
 
 export function SponsorsPage() {

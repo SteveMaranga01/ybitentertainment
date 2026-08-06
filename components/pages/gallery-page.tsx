@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { OfferBanner } from "@/components/page/offer-banner";
-import { PageHero } from "@/components/page/page-hero";
-import { galleryImages } from "@/components/data/site";
+import { OfferBanner } from "@/components/ui/offer-banner";
+import { PageHero } from "@/components/ui/page-hero";
+import { galleryImages } from "@/lib/data/site";
 
 export function GalleryPage() {
   return (

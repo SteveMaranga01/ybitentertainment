@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #080808;
-  --foreground: #f8f4ea;
-  --ybit-black: #080808;
-  --ybit-charcoal: #111111;
-  --ybit-graphite: #1a1a18;
-  --ybit-line: rgba(248, 244, 234, 0.14);
-  --ybit-ivory: #f8f4ea;
-  --ybit-muted: #b9b0a0;
-  --ybit-gold: #ffcc0b;
-  --ybit-rose: #e7a37d;
-  --ybit-blue: #3b82f6;
-  --ybit-green: #74a46d;
+  --background: #050505;
+  --foreground: #F8F4EA;
+  --ybit-black: #050505;
+  --ybit-charcoal: #0F0F11;
+  --ybit-graphite: #17171A;
+  --ybit-line: rgba(255, 92, 141, 0.15);
+  --ybit-ivory: #F8F4EA;
+  --ybit-muted: #9CA3AF;
+  --ybit-gold: #FF5C8D; /* Repurposed as Electric Rose Accent */
+  --ybit-rose: #FF5C8D;
+  --ybit-blue: #3B82F6;
+  --ybit-green: #10B981;
 }
 
 @theme inline {
@@ -39,7 +39,7 @@ body {
 }
 
 ::selection {
-  background: var(--ybit-gold);
+  background: var(--ybit-rose);
   color: var(--ybit-black);
 }
 
@@ -55,6 +55,12 @@ video {
 .ybit-container {
   width: min(100% - 32px, 1440px);
   margin-inline: auto;
+}
+
+.nav {
+  @apply relative after:absolute after:top-5 after:w-3/5 after:left-1/2 after:bottom-1 after:h-0.5 after:scale-x-0 
+  hover:after:scale-x-100 after:origin-center after:bg-ybit-gold after:transition-transform after:rounded-full
+  after:-translate-x-1/2 after:duration-400;
 }
 
 .reveal-up {
@@ -110,4 +116,50 @@ video {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ScrollStack styles */
+.scroll-stack-scroller {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: visible;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: scroll-position;
+  scrollbar-width: none;
+}
+
+.scroll-stack-inner {
+  padding: 20vh 5rem 50rem;
+  min-height: 100vh;
+}
+
+.scroll-stack-card-wrapper {
+  position: relative;
+}
+
+.scroll-stack-card {
+  transform-origin: top center;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+  margin: 30px 0;
+  padding: 3rem;
+  border-radius: 40px;
+  box-sizing: border-box;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  position: relative;
+}
+
+.scroll-stack-end {
+  width: 100%;
+  height: 1px;
 }

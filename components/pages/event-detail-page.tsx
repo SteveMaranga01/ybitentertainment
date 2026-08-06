@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { FrontendFormShell } from "@/components/forms/frontend-form-shell";
-import { OfferBanner } from "@/components/page/offer-banner";
+import { OfferBanner } from "@/components/ui/offer-banner";
 import { Button } from "@/components/ui/button";
-import { upcomingEvents } from "@/components/data/site";
+import { upcomingEvents } from "@/lib/data/site";
 
 export function EventDetailPage({ slug }: { slug: string }) {
   const event = upcomingEvents.find((item) => item.slug === slug);

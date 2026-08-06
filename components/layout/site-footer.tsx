@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import Img from "next/image";
 
 const footerLinks = [
   { href: "/about", label: "About" },

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
+import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -30,7 +32,11 @@ export default function RootLayout({
       lang="en"
       className={`${montserrat.variable} ${playfair.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-ybit-black text-ybit-ivory">{children}</body>
+      <body className="flex min-h-full flex-col bg-ybit-black text-ybit-ivory">
+        <SiteHeader />
+        <main className="flex-1 overflow-x-hidden">{children}</main>
+        <SiteFooter />
+      </body>
     </html>
   );
 }

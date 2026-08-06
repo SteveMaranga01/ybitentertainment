@@ -1,4 +1,3 @@
-import { SiteHeader } from "@/components/layout/site-header";
 import { BookingSection } from "@/components/sections/booking-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
 import { FooterCTA } from "@/components/sections/footer-cta";
@@ -10,8 +9,7 @@ import { TicketsSection } from "@/components/sections/tickets-section";
 
 export function HomePage() {
   return (
-    <main className="overflow-hidden">
-      <SiteHeader />
+    <>
       <HeroSection />
       <ExperienceSection />
       <BookingSection />
@@ -20,6 +18,6 @@ export function HomePage() {
       <ProcessSection />
       <GallerySection />
       <FooterCTA />
-    </main>
+    </>
   );
 }

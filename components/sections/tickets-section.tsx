@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ticketTiers } from "@/components/data/home";
+import { ticketTiers } from "@/lib/data/home";
 import { SectionIntro } from "@/components/sections/section-intro";
 
 export function TicketsSection() {

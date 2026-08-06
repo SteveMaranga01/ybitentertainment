@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import GradualBlur from "@/components/GradualBlur";
 
 export function HeroSection() {
   return (

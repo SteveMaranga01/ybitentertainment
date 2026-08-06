@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { OfferBanner } from "@/components/page/offer-banner";
-import { PageHero } from "@/components/page/page-hero";
-import { teamMembers } from "@/components/data/site";
+import { OfferBanner } from "@/components/ui/offer-banner";
+import { PageHero } from "@/components/ui/page-hero";
+import { teamMembers } from "@/lib/data/site";
 import { SectionIntro } from "@/components/sections/section-intro";
 
 export function TeamPage() {

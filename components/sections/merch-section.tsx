@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { merchItems } from "@/components/data/home";
+import { merchItems } from "@/lib/data/home";
 import { SectionIntro } from "@/components/sections/section-intro";
 
 export function MerchSection() {

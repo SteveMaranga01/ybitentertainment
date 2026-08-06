@@ -1,5 +1,5 @@
-import { OfferBanner } from "@/components/page/offer-banner";
-import { PageHero } from "@/components/page/page-hero";
+import { OfferBanner } from "@/components/ui/offer-banner";
+import { PageHero } from "@/components/ui/page-hero";
 import { SectionIntro } from "@/components/sections/section-intro";
 
 const facts = [
