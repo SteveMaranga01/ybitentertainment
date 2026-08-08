@@ -1,3 +1,14 @@
+export const cinematicTransition = {
+  duration: 0.8,
+  ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+};
+
+export const pageTransition = {
+  hidden: { opacity: 0, y: 20 },
+  enter: { opacity: 1, y: 0, transition: cinematicTransition },
+  exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: [0.4, 0, 1, 1] } },
+};
+
 export const fadeIn = (direction:string, delay:number, duration:number) => {
     return {
       hidden: {

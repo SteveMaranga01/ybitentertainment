@@ -1,27 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { useState } from "react";
-import { FaAngleRight } from "react-icons/fa6";
-import { motion, AnimatePresence, type Variants } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const navItems = [
   { href: "/", label: "Home" },
   {
     href: "/about",
     label: "About",
+    description: "The people and partners behind the Ybit house.",
     children: [
-      { href: "/about", label: "About" },
-      { href: "/team", label: "Team" },
-      { href: "/sponsors", label: "Sponsors" },
+      { href: "/about", label: "Our story" },
+      { href: "/team", label: "Meet the team" },
+      { href: "/sponsors", label: "Partner with us" },
     ],
   },
   {
     href: "/weddings",
     label: "Experiences",
+    description: "Private celebrations and public moments, produced end to end.",
     children: [
       { href: "/weddings", label: "Weddings" },
       { href: "/festivals", label: "Festivals" },
@@ -33,164 +35,109 @@ const navItems = [
   { href: "/gallery", label: "Gallery" },
 ];
 
-const menuVariants: Variants = {
-  hidden: { opacity: 0, y: -10, transition: { duration: 0.2 } },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
-};
-const mobileupVariants: Variants = {
-  hidden: { opacity: 0, y: -10, transition: { duration: 0.5 } },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const mobileVariants: Variants = {
-  hidden: { opacity: 0, height: 0, transition: { duration: 0.3 } },
-  visible: { opacity: 1, height: "auto", transition: { duration: 0.3 } },
+const panelVariants = {
+  hidden: { opacity: 0, y: -8, transition: { duration: 0.16 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1] } },
 };
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
+  useEffect(() => {
+    setIsOpen(false);
+    setActiveMenu(null);
+  }, [pathname]);
+
+  const isCurrent = (href: string) => href === "/" ? pathname === href : pathname.startsWith(href);
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 py-2">
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between border border-white/10 bg-ybit-black/45 px-4 backdrop-blur-xl md:px-6">
-        <Link href="/" className="relative w-35 h-20 overflow-hidden">
-          <Image alt="Ybit Logo" src="/nav.png" fill className="object-cover" />
+    <header className="fixed inset-x-0 top-0 z-50 px-3 py-3 md:px-5">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between border border-white/10 bg-ybit-black/75 px-4 py-1.5 backdrop-blur-2xl md:px-6">
+        <Link href="/" aria-label="Ybit Entertainment home" className="relative h-14 w-28 overflow-hidden md:h-16 md:w-32">
+          <Image alt="Ybit Entertainment" src="/nav.png" fill className="object-cover" sizes="128px" priority />
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-[0.18em] text-ybit-muted">
-          {navItems.map((item) => (
-            <div
-              key={item.href}
-              className="relative group"
-              onMouseEnter={() => item.children && setActiveMenu(item.label)}
-              onMouseLeave={() => setActiveMenu(null)}
-            >
-              <Link
-                href={item.href}
-                className="hover:text-white flex nav items-center gap-1"
-              >
-                {item.label}
-                {item.children && (
-                  <FaAngleRight className="text-[10px] group-hover:rotate-90 transition-transform duration-300" />
-                )}
-              </Link>
-
-              <AnimatePresence>
-                {item.children && activeMenu === item.label && (
-                  <motion.div
-                    variants={menuVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="hidden"
-                    className="absolute left-1/2 top-full mt-2 -translate-x-1/2 rounded-2xl bg-ybit-black/90 backdrop-blur-xl border border-white/10 py-2 min-w-48"
+        <nav aria-label="Main navigation" className="hidden items-center gap-7 text-[11px] font-semibold uppercase tracking-[0.18em] text-ybit-muted lg:flex">
+          {navItems.map((item) => {
+            const current = item.children ? item.children.some((child) => isCurrent(child.href)) : isCurrent(item.href);
+            const menuId = `nav-${item.label.toLowerCase()}`;
+            return (
+              <div key={item.href} className="relative" onMouseEnter={() => item.children && setActiveMenu(item.label)} onMouseLeave={() => setActiveMenu(null)}>
+                {item.children ? (
+                  <button
+                    type="button"
+                    aria-expanded={activeMenu === item.label}
+                    aria-controls={menuId}
+                    onClick={() => setActiveMenu(activeMenu === item.label ? null : item.label)}
+                    onFocus={() => setActiveMenu(item.label)}
+                    className={`nav flex items-center gap-1.5 py-4 transition-colors hover:text-white ${current ? "text-white after:scale-x-100" : ""}`}
                   >
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block px-6 py-2.5 hover:text-white hover:translate-x-1 transition-colors text-[11px] duration-300"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </motion.div>
+                    {item.label}<ChevronDown className={`size-3 transition-transform ${activeMenu === item.label ? "rotate-180" : ""}`} />
+                  </button>
+                ) : (
+                  <Link href={item.href} aria-current={current ? "page" : undefined} className={`nav py-4 transition-colors hover:text-white ${current ? "text-white after:scale-x-100" : ""}`}>
+                    {item.label}
+                  </Link>
                 )}
-              </AnimatePresence>
-            </div>
-          ))}
+
+                <AnimatePresence>
+                  {item.children && activeMenu === item.label ? (
+                    <motion.div
+                      id={menuId}
+                      role="menu"
+                      variants={panelVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="hidden"
+                      className="absolute left-1/2 top-full mt-1 grid w-[440px] -translate-x-1/2 grid-cols-[0.8fr_1.2fr] border border-white/10 bg-ybit-charcoal p-2 shadow-2xl"
+                    >
+                      <div className="border-r border-white/10 p-5">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-ybit-rose">{item.label}</p>
+                        <p className="mt-4 font-serif text-2xl leading-tight text-ybit-ivory">{item.description}</p>
+                      </div>
+                      <div className="p-2">
+                        {item.children.map((child, index) => (
+                          <Link key={child.href} href={child.href} role="menuitem" className="group flex items-center justify-between px-4 py-3 text-ybit-muted transition hover:bg-white/[0.05] hover:text-white">
+                            <span>{child.label}</span><span className="text-ybit-rose transition-transform group-hover:translate-x-1">0{index + 1}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  ) : null}
+                </AnimatePresence>
+              </div>
+            );
+          })}
         </nav>
 
-        <Button
-          href="/book"
-          className="hidden md:inline-flex min-h-10 px-4 text-[11px]"
-        >
-          book
-        </Button>
-
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-ybit-gold "
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        <div className="hidden lg:block"><Button href="/book" className="min-h-10 px-4 text-[10px]">Book an event</Button></div>
+        <button type="button" aria-label={isOpen ? "Close navigation" : "Open navigation"} aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} className="grid size-10 place-items-center text-ybit-ivory lg:hidden">
+          {isOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
-        {isOpen && (
-          <motion.nav
-            variants={mobileVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            className="md:hidden mt-2 border border-white/10 bg-ybit-black/70 backdrop-blur-xl p-4 overflow-hidden"
-          >
-            <motion.div
-              variants={mobileupVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-            >
-              {navItems.map((item) => (
-                <div key={item.href} className="py-2">
-                  {item.children ? (
-                    <div>
-                      <button
-                        onClick={() =>
-                          setActiveMenu(
-                            activeMenu === item.label ? null : item.label,
-                          )
-                        }
-                        className="flex w-full items-center justify-between text-ybit-muted hover:text-white"
-                      >
-                        {item.label}
-                        <motion.span
-                          animate={{
-                            rotate: activeMenu === item.label ? 90 : 0,
-                          }}
-                        >
-                          <FaAngleRight />
-                        </motion.span>
-                      </button>
-                      {activeMenu === item.label && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          className="pl-4 mt-3 flex flex-col gap-3 border-l border-white/10"
-                        >
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.href}
-                              href={child.href}
-                              onClick={() => setIsOpen(false)}
-                              className="text-sm text-ybit-muted hover:text-white"
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </div>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className="block text-ybit-muted hover:text-white"
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </div>
-              ))}
-              <Button href="/book" className="w-full min-h-10 px-4 text-[11px]">
-                book
-              </Button>
-            </motion.div>
+        {isOpen ? (
+          <motion.nav initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }} aria-label="Mobile navigation" className="mx-auto mt-2 max-w-[1440px] overflow-hidden border border-white/10 bg-ybit-charcoal p-4 lg:hidden">
+            {navItems.map((item) => (
+              <div key={item.href} className="border-b border-white/10 py-3 last:border-0">
+                {item.children ? (
+                  <>
+                    <button type="button" aria-expanded={activeMenu === item.label} onClick={() => setActiveMenu(activeMenu === item.label ? null : item.label)} className="flex w-full items-center justify-between text-xs font-bold uppercase tracking-[0.2em] text-ybit-ivory">
+                      {item.label}<ChevronDown className={`size-4 transition-transform ${activeMenu === item.label ? "rotate-180" : ""}`} />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {activeMenu === item.label ? <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="grid gap-3 overflow-hidden pt-4 pl-4">{item.children.map((child) => <Link key={child.href} href={child.href} className="text-sm text-ybit-muted">{child.label}</Link>)}</motion.div> : null}
+                    </AnimatePresence>
+                  </>
+                ) : <Link href={item.href} className="text-xs font-bold uppercase tracking-[0.2em] text-ybit-ivory">{item.label}</Link>}
+              </div>
+            ))}
+            <Button href="/book" className="mt-4 w-full">Book an event</Button>
           </motion.nav>
-        )}
+        ) : null}
       </AnimatePresence>
     </header>
   );

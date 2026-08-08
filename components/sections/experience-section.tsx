@@ -1,43 +1,80 @@
+"use client";
+
+import { useGSAP } from "@gsap/react";
 import Image from "next/image";
+import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import { experiences } from "@/lib/data/home";
 import { SectionIntro } from "@/components/sections/section-intro";
 
-export function ExperienceSection() {
-  return (
-    <section id="experiences" className="bg-ybit-black py-24 md:py-36">
-      <div className="ybit-container">
-        <SectionIntro
-          eyebrow="Experiences"
-          title="Three moods. One production standard."
-          text="Each event category gets its own tempo, palette, and guest flow while staying unmistakably Ybit."
-        />
+gsap.registerPlugin(ScrollTrigger);
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-3">
-          {experiences.map((experience) => (
-            <article
+const experienceLinks = ["/weddings", "/festivals", "/birthdays"];
+
+export function ExperienceSection() {
+  const root = useRef<HTMLElement>(null);
+  const track = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const media = gsap.matchMedia();
+      media.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
+        const getDistance = () => Math.max(0, (track.current?.scrollWidth ?? 0) - window.innerWidth + 32);
+        gsap.to(track.current, {
+          x: () => -getDistance(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: root.current,
+            start: "top top",
+            end: () => `+=${getDistance() + window.innerHeight * 0.65}`,
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+      });
+
+      return () => media.revert();
+    },
+    { scope: root },
+  );
+
+  return (
+    <section ref={root} id="experiences" className="relative overflow-hidden bg-ybit-black py-24 lg:flex lg:min-h-screen lg:items-center lg:py-0">
+      <div className="ybit-container w-full lg:max-w-none lg:px-0">
+        <div className="ybit-container lg:mb-14">
+          <SectionIntro
+            eyebrow="Select an experience"
+            title="One house. Different worlds."
+            text="Choose the energy first. We build every other detail around it."
+          />
+        </div>
+        <div ref={track} className="mt-14 flex flex-col gap-5 lg:mt-0 lg:w-max lg:flex-row lg:gap-6 lg:pl-[max(1rem,calc((100vw-1440px)/2))]">
+          {experiences.map((experience, index) => (
+            <Link
               key={experience.title}
-              className="group relative min-h-[520px] overflow-hidden border border-white/10 bg-ybit-charcoal"
+              href={experienceLinks[index]}
+              className="group relative min-h-[460px] overflow-hidden border border-white/10 bg-ybit-charcoal lg:min-h-[540px] lg:w-[min(68vw,840px)]"
             >
               <Image
                 src={experience.image}
                 alt={`${experience.title} event by Ybit Entertainment`}
                 fill
-                className="object-cover opacity-60 grayscale-[20%] transition duration-700 group-hover:scale-105 group-hover:opacity-85 group-hover:grayscale-0"
-                sizes="(min-width: 1024px) 33vw, 100vw"
+                className="object-cover opacity-65 transition duration-700 group-hover:scale-105 group-hover:opacity-90"
+                sizes="(min-width: 1024px) 68vw, 100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ybit-black via-ybit-black/30 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-7 md:p-9">
-                <p className="text-xs font-bold uppercase tracking-[0.28em] text-ybit-gold">
-                  {experience.label}
-                </p>
-                <h3 className="mt-3 font-serif text-5xl text-white">
-                  {experience.title}
-                </h3>
-                <p className="mt-5 max-w-md text-sm leading-7 text-ybit-muted">
-                  {experience.description}
-                </p>
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.82),rgba(5,5,5,0.08)_70%),linear-gradient(0deg,rgba(5,5,5,0.72),transparent_58%)]" />
+              <div className="absolute inset-x-0 top-0 flex items-center justify-between p-6 md:p-8">
+                <p className="text-xs font-bold uppercase tracking-[0.28em] text-ybit-rose">0{index + 1} / {experience.label}</p>
+                <span className="grid size-10 place-items-center rounded-full border border-white/25 text-lg transition duration-300 group-hover:border-ybit-blue group-hover:bg-ybit-blue group-hover:text-ybit-black">↗</span>
               </div>
-            </article>
+              <div className="absolute inset-x-0 bottom-0 p-7 md:p-10">
+                <h3 className="font-serif text-5xl leading-none text-white md:text-7xl">{experience.title}</h3>
+                <p className="mt-5 max-w-md text-sm leading-7 text-ybit-muted transition duration-300 group-hover:text-ybit-ivory">{experience.description}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

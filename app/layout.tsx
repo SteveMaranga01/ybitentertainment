@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { PageLoader } from "@/components/layout/page-loader";
+import { PageTransition } from "@/components/layout/page-transition";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -33,8 +35,11 @@ export default function RootLayout({
       className={`${montserrat.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-ybit-black text-ybit-ivory">
+        <PageLoader />
         <SiteHeader />
-        <main className="flex-1 overflow-x-hidden">{children}</main>
+        <main className="flex-1 overflow-x-hidden">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <SiteFooter />
       </body>
     </html>
