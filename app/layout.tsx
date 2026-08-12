@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-playfair",
   display: "swap",
   weight: ["400", "500", "600", "700"],
 });
@@ -45,8 +44,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${plusJakarta.variable}`}>
-      <body className="min-h-screen bg-background text-text-primary antialiased">
+    <html
+      lang="en"
+      className={`${montserrat.variable} ${playfair.variable} h-full antialiased`}
+    >
+      <body className="flex min-h-full flex-col bg-ybit-black text-ybit-ivory">
         {children}
       </body>
     </html>

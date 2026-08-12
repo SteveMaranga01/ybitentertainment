@@ -22,11 +22,7 @@ export default function SiteHeader() {
   }, []);
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -36,174 +32,131 @@ export default function SiteHeader() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled
-            ? "glass-dark py-4 shadow-lg"
-            : "bg-transparent py-6"
+          "fixed inset-x-0 top-0 z-50 px-3 py-3 transition-all duration-300 md:px-5",
+          isScrolled ? "" : ""
         )}
       >
-        <div className="container-custom flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="relative z-50">
-            <Image
-              src="/nav.png"
-              alt="Ybit Entertainment"
-              width={120}
-              height={40}
-              className="h-8 md:h-10 w-auto"
-              priority
-            />
+        <div className="mx-auto flex max-w-[1440px] items-center justify-between border border-white/10 bg-ybit-black/75 px-4 py-1.5 backdrop-blur-2xl md:px-6">
+          <Link href="/" aria-label="Ybit Entertainment home" className="relative h-14 w-28 overflow-hidden md:h-16 md:w-32">
+            <Image src="/nav.png" alt="Ybit Entertainment" fill className="object-cover" sizes="128px" priority />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {NAV_LINKS.map((link) =>
-              link.children ? (
+          <nav aria-label="Main navigation" className="hidden items-center gap-7 text-[11px] font-semibold uppercase tracking-[0.18em] text-ybit-muted lg:flex">
+            {NAV_LINKS.map((link) => {
+              const hasChildren = Boolean(link.children?.length);
+              const current = hasChildren ? link.children!.some((child) => child.href === "/") : false;
+
+              return (
                 <div
                   key={link.label}
                   className="relative"
-                  onMouseEnter={() => setActiveDropdown(link.label)}
+                  onMouseEnter={() => hasChildren && setActiveDropdown(link.label)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <button
-                    className={cn(
-                      "flex items-center gap-1 text-sm font-medium transition-colors",
-                      isScrolled
-                        ? "text-text-light hover:text-primary"
-                        : "text-white hover:text-primary"
-                    )}
-                  >
-                    {link.label}
-                    <ChevronDown className="w-4 h-4" />
-                  </button>
-
-                  <AnimatePresence>
-                    {activeDropdown === link.label && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 w-48 glass-dark rounded-lg py-2 shadow-xl"
-                      >
-                        {link.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className="block px-4 py-2 text-sm text-text-light hover:text-primary hover:bg-white/5 transition-colors"
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "text-sm font-medium transition-colors",
-                    isScrolled
-                      ? "text-text-light hover:text-primary"
-                      : "text-white hover:text-primary"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
-          </nav>
-
-          {/* CTA Button */}
-          <Link
-            href="/book"
-            className="hidden lg:inline-flex items-center justify-center px-6 py-2.5 bg-primary text-secondary-dark font-medium text-sm rounded-md hover:bg-primary-light transition-colors shadow-gold"
-          >
-            Book Now
-          </Link>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden relative z-50 p-2"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-white" />
-            ) : (
-              <Menu className="w-6 h-6 text-white" />
-            )}
-          </button>
-        </div>
-      </header>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-secondary-dark lg:hidden"
-          >
-            <nav className="flex flex-col items-center justify-center h-full gap-8">
-              {NAV_LINKS.map((link, index) =>
-                link.children ? (
-                  <div key={link.label} className="flex flex-col items-center gap-4">
-                    <span className="text-2xl font-display font-semibold text-text-light">
-                      {link.label}
-                    </span>
-                    <div className="flex flex-col items-center gap-2">
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="text-lg text-text-light-secondary hover:text-primary transition-colors"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ) : (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <Link
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-2xl font-display font-semibold text-text-light hover:text-primary transition-colors"
+                  {hasChildren ? (
+                    <button
+                      type="button"
+                      aria-expanded={activeDropdown === link.label}
+                      aria-controls={`nav-${link.label.toLowerCase()}`}
+                      onClick={() => setActiveDropdown(activeDropdown === link.label ? null : link.label)}
+                      onFocus={() => setActiveDropdown(link.label)}
+                      className="nav flex items-center gap-1.5 py-4 transition-colors hover:text-white"
                     >
                       {link.label}
+                      <ChevronDown className={cn("size-3 transition-transform", activeDropdown === link.label && "rotate-180")} />
+                    </button>
+                  ) : (
+                    <Link href={link.href} className="nav py-4 transition-colors hover:text-white">
+                      {link.label}
                     </Link>
-                  </motion.div>
-                )
-              )}
+                  )}
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-              >
-                <Link
-                  href="/book"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="mt-4 inline-flex items-center justify-center px-8 py-3 bg-primary text-secondary-dark font-semibold text-lg rounded-md"
-                >
-                  Book Now
-                </Link>
-              </motion.div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                  <AnimatePresence>
+                    {hasChildren && activeDropdown === link.label ? (
+                      <motion.div
+                        id={`nav-${link.label.toLowerCase()}`}
+                        role="menu"
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute left-1/2 top-full mt-1 grid w-[440px] -translate-x-1/2 grid-cols-[0.8fr_1.2fr] border border-white/10 bg-ybit-charcoal p-2 shadow-2xl"
+                      >
+                        <div className="border-r border-white/10 p-5">
+                          <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-ybit-rose">{link.label}</p>
+                          <p className="mt-4 font-serif text-2xl leading-tight text-ybit-ivory">{link.description ?? "Premium event experiences."}</p>
+                        </div>
+                        <div className="p-2">
+                          {link.children!.map((child, index) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              role="menuitem"
+                              className="group flex items-center justify-between px-4 py-3 text-ybit-muted transition hover:bg-white/[0.05] hover:text-white"
+                            >
+                              <span>{child.label}</span>
+                              <span className="text-ybit-rose transition-transform group-hover:translate-x-1">0{index + 1}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    ) : null}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </nav>
+
+          <div className="hidden lg:block">
+            <Link href="/book" className="ybit-button inline-flex min-h-10 items-center justify-center border border-ybit-rose bg-ybit-rose px-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-ybit-black transition hover:text-ybit-black">
+              <span className="ybit-button__label" data-label="Book now">
+                <span>Book now</span>
+              </span>
+            </Link>
+          </div>
+
+          <button type="button" aria-label={isMobileMenuOpen ? "Close navigation" : "Open navigation"} aria-expanded={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="grid size-10 place-items-center text-ybit-ivory lg:hidden">
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+
+        <AnimatePresence>
+          {isMobileMenuOpen ? (
+            <motion.nav initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }} aria-label="Mobile navigation" className="mx-auto mt-2 max-w-[1440px] overflow-hidden border border-white/10 bg-ybit-charcoal p-4 lg:hidden">
+              {NAV_LINKS.map((link) => (
+                <div key={link.label} className="border-b border-white/10 py-3 last:border-0">
+                  {link.children ? (
+                    <>
+                      <button type="button" aria-expanded={activeDropdown === link.label} onClick={() => setActiveDropdown(activeDropdown === link.label ? null : link.label)} className="flex w-full items-center justify-between text-xs font-bold uppercase tracking-[0.2em] text-ybit-ivory">
+                        {link.label}
+                        <ChevronDown className={cn("size-4 transition-transform", activeDropdown === link.label && "rotate-180")} />
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {activeDropdown === link.label ? (
+                          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="grid gap-3 overflow-hidden pt-4 pl-4">
+                            {link.children!.map((child) => (
+                              <Link key={child.href} href={child.href} className="text-sm text-ybit-muted">
+                                {child.label}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        ) : null}
+                      </AnimatePresence>
+                    </>
+                  ) : (
+                    <Link href={link.href} className="text-xs font-bold uppercase tracking-[0.2em] text-ybit-ivory">
+                      {link.label}
+                    </Link>
+                  )}
+                </div>
+              ))}
+              <Link href="/book" className="mt-4 inline-flex w-full items-center justify-center border border-ybit-rose bg-ybit-rose px-8 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-ybit-black">
+                Book now
+              </Link>
+            </motion.nav>
+          ) : null}
+        </AnimatePresence>
+      </header>
     </>
   );
 }

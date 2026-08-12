@@ -19,13 +19,12 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="section-spacing bg-background-dark relative overflow-hidden">
-      {/* Background Pattern */}
+    <section className="section-spacing relative overflow-hidden bg-[#0a0a0c]">
       <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `radial-gradient(circle at 25px 25px, rgba(201, 169, 98, 0.3) 2%, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 25px 25px, rgba(255, 92, 141, 0.3) 2%, transparent 0)`,
             backgroundSize: "50px 50px",
           }}
         />
@@ -37,17 +36,17 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="mb-12 text-center"
         >
-          <p className="text-primary text-sm font-medium tracking-widest uppercase mb-4">
+          <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.32em] text-ybit-rose">
             Testimonials
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-text-light">
+          <h2 className="text-4xl font-bold text-white md:text-5xl">
             What Our Clients Say
           </h2>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto max-w-4xl rounded-[2rem] border border-white/10 bg-[#0d0d0f] p-6 md:p-10">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -57,41 +56,37 @@ export default function Testimonials() {
               transition={{ duration: 0.5 }}
               className="text-center"
             >
-              <Quote className="w-12 h-12 text-primary mx-auto mb-6 opacity-50" />
-              <blockquote className="font-display text-2xl md:text-3xl text-text-light mb-8 leading-relaxed italic">
+              <Quote className="mx-auto mb-6 h-12 w-12 text-ybit-rose opacity-60" />
+              <blockquote className="mb-8 font-serif text-2xl leading-relaxed text-white md:text-3xl">
                 &ldquo;{TESTIMONIALS[current].quote}&rdquo;
               </blockquote>
               <div>
-                <p className="text-primary font-semibold text-lg">
+                <p className="text-lg font-semibold text-ybit-rose">
                   {TESTIMONIALS[current].author}
                 </p>
-                <p className="text-text-light-secondary text-sm">
+                <p className="text-sm text-ybit-muted">
                   {TESTIMONIALS[current].event}
                 </p>
               </div>
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-12">
+          <div className="mt-10 flex items-center justify-center gap-4">
             <button
               onClick={prev}
-              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-primary hover:border-primary hover:text-secondary-dark transition-all"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 text-white transition-all hover:border-ybit-rose hover:bg-ybit-rose hover:text-ybit-black"
               aria-label="Previous testimonial"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="h-5 w-5" />
             </button>
 
-            {/* Dots */}
             <div className="flex gap-2">
               {TESTIMONIALS.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrent(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === current
-                      ? "bg-primary w-6"
-                      : "bg-white/30 hover:bg-white/50"
+                  className={`h-2 rounded-full transition-all ${
+                    index === current ? "w-6 bg-ybit-rose" : "w-2 bg-white/30 hover:bg-white/50"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -100,10 +95,10 @@ export default function Testimonials() {
 
             <button
               onClick={next}
-              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-primary hover:border-primary hover:text-secondary-dark transition-all"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 text-white transition-all hover:border-ybit-rose hover:bg-ybit-rose hover:text-ybit-black"
               aria-label="Next testimonial"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="h-5 w-5" />
             </button>
           </div>
         </div>

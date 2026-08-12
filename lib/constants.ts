@@ -20,6 +20,7 @@ export const NAV_LINKS = [
   {
     label: "Services",
     href: "#",
+    description: "Private celebrations and public moments, produced end to end.",
     children: [
       { label: "Weddings", href: "/weddings" },
       { label: "Festivals", href: "/festivals" },

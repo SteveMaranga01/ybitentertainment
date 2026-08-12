@@ -8,28 +8,27 @@ import { EVENT_CATEGORIES } from "@/lib/constants";
 
 export default function ExperienceCategories() {
   return (
-    <section className="section-spacing bg-background">
+    <section className="section-spacing bg-[#050505]">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-12 text-center md:mb-16"
         >
-          <p className="text-primary text-sm font-medium tracking-widest uppercase mb-4">
+          <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.32em] text-ybit-rose">
             Our Services
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-text-primary mb-4">
+          <h2 className="mb-4 text-4xl font-bold text-white md:text-5xl">
             Experience Categories
           </h2>
-          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-            From intimate gatherings to grand productions, we specialize in
-            creating extraordinary events across all occasions.
+          <p className="mx-auto max-w-2xl text-base text-ybit-muted md:text-lg">
+            From intimate gatherings to grand productions, we specialize in creating extraordinary events across all occasions.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
           {EVENT_CATEGORIES.map((category, index) => (
             <motion.div
               key={category.id}
@@ -40,9 +39,8 @@ export default function ExperienceCategories() {
             >
               <Link
                 href={category.href}
-                className="group block relative h-[400px] rounded-xl overflow-hidden"
+                className="group relative block h-[420px] overflow-hidden rounded-[1.6rem] border border-white/10 bg-ybit-charcoal shadow-[0_0_30px_rgba(0,0,0,0.25)]"
               >
-                {/* Image */}
                 <Image
                   src={category.image}
                   alt={category.title}
@@ -50,23 +48,21 @@ export default function ExperienceCategories() {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary-dark/90 via-secondary-dark/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/45 to-transparent" />
 
-                {/* Content */}
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <p className="text-primary text-xs font-medium tracking-widest uppercase mb-2">
+                <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-6">
+                  <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.24em] text-ybit-rose">
                     {category.subtitle}
                   </p>
-                  <h3 className="font-display text-2xl font-bold text-white mb-2">
+                  <h3 className="mb-2 text-2xl font-bold text-white">
                     {category.title}
                   </h3>
-                  <p className="text-text-light-secondary text-sm mb-4 line-clamp-2">
+                  <p className="mb-4 max-w-xs text-sm leading-6 text-ybit-muted">
                     {category.description}
                   </p>
-                  <div className="flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-all">
+                  <div className="flex items-center text-sm font-medium text-ybit-rose transition-all group-hover:gap-2">
                     Explore
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
               </Link>
