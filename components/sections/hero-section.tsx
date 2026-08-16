@@ -20,8 +20,7 @@ export function HeroSection() {
         .from("[data-hero-kicker]", { y: 18, autoAlpha: 0, duration: 0.45 })
         .from("[data-hero-line]", { yPercent: 110, autoAlpha: 0, duration: 0.85, stagger: 0.1 }, "-=0.15")
         .from("[data-hero-copy]", { y: 20, autoAlpha: 0, duration: 0.5 }, "-=0.45")
-        .from("[data-hero-action]", { y: 16, autoAlpha: 0, duration: 0.45, stagger: 0.1 }, "-=0.25")
-        .from("[data-hero-aside]", { x: 24, autoAlpha: 0, duration: 0.55 }, "-=0.55");
+        .from("[data-hero-aside]", { x: 24, autoAlpha: 0, duration: 0.55 }, "-=0.35");
 
       gsap.to("[data-hero-video]", {
         yPercent: 12,
@@ -30,7 +29,7 @@ export function HeroSection() {
         scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: true },
       });
     },
-    { scope: root },
+    { scope: root, dependencies: [] },
   );
 
   return (

@@ -20,29 +20,45 @@ export function ExperienceSection() {
   useGSAP(
     () => {
       const media = gsap.matchMedia();
-      media.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
-        const getDistance = () => Math.max(0, (track.current?.scrollWidth ?? 0) - window.innerWidth + 32);
-        gsap.to(track.current, {
-          x: () => -getDistance(),
-          ease: "none",
-          scrollTrigger: {
-            trigger: root.current,
-            start: "top top",
-            end: () => `+=${getDistance() + window.innerHeight * 0.65}`,
-            pin: true,
-            scrub: 1,
-            invalidateOnRefresh: true,
-          },
-        });
-      });
+      media.add(
+        "(min-width: 1024px) and (prefers-reduced-motion: no-preference)",
+        () => {
+          const getDistance = () => {
+            const trackEl = track.current;
+            const rootEl = root.current;
+            if (!trackEl || !rootEl) return 0;
+            return Math.max(0, trackEl.scrollWidth - rootEl.offsetWidth + 32);
+          };
+
+          if (!getDistance()) return;
+
+          gsap.to(track.current, {
+            x: () => -getDistance(),
+            ease: "none",
+            scrollTrigger: {
+              trigger: root.current,
+              start: "top top",
+              end: () => `+=${getDistance()}`,
+              pin: true,
+              scrub: 1,
+              anticipatePin: 1,
+              invalidateOnRefresh: true,
+            },
+          });
+        },
+      );
 
       return () => media.revert();
     },
-    { scope: root },
+    { scope: root, dependencies: [] },
   );
 
   return (
-    <section ref={root} id="experiences" className="relative overflow-hidden bg-ybit-black py-24 lg:flex lg:min-h-screen lg:items-center lg:py-0">
+    <section
+      ref={root}
+      id="experiences"
+      className="relative overflow-hidden bg-ybit-black py-24 lg:flex lg:min-h-screen lg:items-center lg:py-0"
+    >
       <div className="ybit-container w-full lg:max-w-none lg:px-0">
         <div className="ybit-container lg:mb-14">
           <SectionIntro
@@ -51,7 +67,10 @@ export function ExperienceSection() {
             text="Choose the energy first. We build every other detail around it."
           />
         </div>
-        <div ref={track} className="mt-14 flex flex-col gap-5 lg:mt-0 lg:w-max lg:flex-row lg:gap-6 lg:pl-[max(1rem,calc((100vw-1440px)/2))]">
+        <div
+          ref={track}
+          className="mt-14 flex flex-col gap-5 lg:mt-0 lg:w-max lg:flex-row lg:gap-6 lg:pl-[max(1rem,calc((100vw-1440px)/2))]"
+        >
           {experiences.map((experience, index) => (
             <Link
               key={experience.title}
@@ -67,12 +86,20 @@ export function ExperienceSection() {
               />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.82),rgba(5,5,5,0.08)_70%),linear-gradient(0deg,rgba(5,5,5,0.72),transparent_58%)]" />
               <div className="absolute inset-x-0 top-0 flex items-center justify-between p-6 md:p-8">
-                <p className="text-xs font-bold uppercase tracking-[0.28em] text-ybit-rose">0{index + 1} / {experience.label}</p>
-                <span className="grid size-10 place-items-center rounded-full border border-white/25 text-lg transition duration-300 group-hover:border-ybit-blue group-hover:bg-ybit-blue group-hover:text-ybit-black">↗</span>
+                <p className="text-xs font-bold uppercase tracking-[0.28em] text-ybit-rose">
+                  0{index + 1} / {experience.label}
+                </p>
+                <span className="grid size-10 place-items-center rounded-full border border-white/25 text-lg transition duration-300 group-hover:border-ybit-rose group-hover:bg-ybit-rose group-hover:text-ybit-black">
+                  ↗
+                </span>
               </div>
               <div className="absolute inset-x-0 bottom-0 p-7 md:p-10">
-                <h3 className="font-serif text-5xl leading-none text-white md:text-7xl">{experience.title}</h3>
-                <p className="mt-5 max-w-md text-sm leading-7 text-ybit-muted transition duration-300 group-hover:text-ybit-ivory">{experience.description}</p>
+                <h3 className="font-serif text-5xl leading-none text-white md:text-7xl">
+                  {experience.title}
+                </h3>
+                <p className="mt-5 max-w-md text-sm leading-7 text-ybit-muted transition duration-300 group-hover:text-ybit-ivory">
+                  {experience.description}
+                </p>
               </div>
             </Link>
           ))}

@@ -17,7 +17,7 @@ export function Button({
         variant === "primary" &&
           "border-ybit-rose bg-ybit-rose text-ybit-black hover:text-ybit-black",
         variant === "ghost" &&
-          "border-white/20 bg-white/[0.03] text-white hover:border-ybit-blue hover:text-ybit-black",
+          "border-white/20 bg-white/[0.03] text-white hover:border-ybit-rose hover:text-ybit-black",
         variant === "quiet" &&
           "border-transparent bg-transparent px-0 text-ybit-rose hover:text-ybit-ivory",
         className,

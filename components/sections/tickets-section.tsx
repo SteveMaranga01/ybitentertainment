@@ -7,7 +7,7 @@ export function TicketsSection() {
   return (
     <section id="tickets" className="bg-ybit-black py-24 md:py-36">
       <div className="ybit-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div className="relative min-h-[560px] overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+        <div className="relative min-h-[560px] overflow-hidden  border border-white/10 shadow-2xl">
           <Image
             src="/MENGO/IMG-20260715-WA0023.jpg"
             alt="Upcoming Ybit event crowd moment"

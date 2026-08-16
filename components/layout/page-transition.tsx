@@ -2,6 +2,7 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { useRef } from "react";
@@ -17,7 +18,8 @@ export function PageTransition({ children }: { children: ReactNode }) {
       gsap.timeline()
         .set("[data-route-curtain]", { yPercent: 0 })
         .to("[data-route-curtain]", { yPercent: -105, duration: 0.8, ease: "power4.inOut" })
-        .from("[data-route-content]", { y: 22, autoAlpha: 0, duration: 0.65, ease: "power3.out" }, "-=0.42");
+        .from("[data-route-content]", { y: 22, autoAlpha: 0, duration: 0.65, ease: "power3.out" }, "-=0.42")
+        .set("[data-route-content]", { clearProps: "transform,opacity,visibility" });
     },
     { scope: root, dependencies: [pathname], revertOnUpdate: true },
   );
@@ -25,6 +27,15 @@ export function PageTransition({ children }: { children: ReactNode }) {
   return (
     <div ref={root} className="relative">
       <div data-route-curtain className="pointer-events-none fixed inset-0 z-[90] bg-ybit-rose" />
+      <div data-route-curtain className="pointer-events-none fixed inset-0 z-[91] flex items-center justify-center">
+        <Image
+          src="/nav.png"
+          alt="Ybit Entertainment logo"
+          width={120}
+          height={120}
+          className="h-auto w-auto object-contain scale-150"
+        />
+      </div>
       <div data-route-content>{children}</div>
     </div>
   );

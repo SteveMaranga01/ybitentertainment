@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const planningFields = [
   "Event type",
@@ -9,27 +10,44 @@ const planningFields = [
 
 export function BookingSection() {
   return (
-    <section id="booking" className="border-y border-white/10 bg-ybit-charcoal py-24 md:py-32">
-      <div className="ybit-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <div>
+    <section
+      id="booking"
+      className="border-y border-white/10 bg-ybit-charcoal py-24 md:py-32"
+    >
+      <div className="ybit-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className=" p-8 md:p-10">
           <p className="text-xs font-bold uppercase tracking-[0.34em] text-ybit-gold">
             Booking
           </p>
-          <h2 className="mt-5 font-serif text-5xl leading-tight text-white md:text-7xl">
+          <h2 className="mt-5 font-serif text-4xl leading-tight text-white sm:text-5xl md:text-6xl">
             Two doors into the Ybit world.
           </h2>
           <p className="mt-6 max-w-xl leading-8 text-ybit-muted">
             One path is for clients who want us to produce their moment. The
             other is for guests looking for the next public experience.
           </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <span className="border border-ybit-gold/30 px-3 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-ybit-gold">
+              Private events
+            </span>
+            <span className="border border-white/10 px-3 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-ybit-ivory">
+              Public access
+            </span>
+          </div>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="border border-ybit-gold/40 bg-ybit-black p-7 md:p-8">
-            <span className="text-xs font-bold uppercase tracking-[0.24em] text-ybit-gold">
-              Plan an Event
-            </span>
-            <h3 className="mt-5 font-serif text-4xl text-white">
+        <div className="grid gap-4 xl:grid-cols-2">
+          <div className="border border-ybit-gold/40 bg-ybit-black p-7 md:p-8 shadow-[0_0_0_1px_rgba(255,255,255,0.04)]">
+            <div className="flex items-center justify-between gap-4">
+              <span className="text-xs font-bold uppercase tracking-[0.24em] text-ybit-gold">
+                Plan an Event
+              </span>
+              <span className="border border-ybit-gold/20 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-ybit-ivory">
+                Concierge
+              </span>
+            </div>
+            <h3 className="mt-5 font-serif text-3xl text-white sm:text-4xl">
               Concierge inquiry
             </h3>
             <p className="mt-4 text-sm leading-7 text-ybit-muted">
@@ -53,29 +71,44 @@ export function BookingSection() {
           </div>
 
           <div className="border border-white/10 bg-white/[0.03] p-7 md:p-8">
-            <span className="text-xs font-bold uppercase tracking-[0.24em] text-ybit-blue">
-              Attend an Event
-            </span>
-            <h3 className="mt-5 font-serif text-4xl text-white">
+            <div className="flex items-center justify-between gap-4">
+              <span className="text-xs font-bold uppercase tracking-[0.24em] text-ybit-blue">
+                Attend an Event
+              </span>
+              <span className="border border-white/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-ybit-muted">
+                Live access
+              </span>
+            </div>
+            <h3 className="mt-5 font-serif text-3xl text-white sm:text-4xl">
               Ticket access
             </h3>
             <p className="mt-4 text-sm leading-7 text-ybit-muted">
               For public events with tiers, live slot availability, M-Pesa STK
               Push, confirmations, and QR access passes.
             </p>
-            <div className="mt-8 border border-white/10 bg-ybit-black p-4">
-              <p className="text-xs uppercase tracking-[0.24em] text-ybit-muted">
-                Payment rail
-              </p>
-              <p className="mt-3 text-2xl font-semibold text-white">
-                M-Pesa Daraja
-              </p>
-              <p className="mt-2 text-sm text-ybit-muted">
-                STK Push first, manual Paybill later.
-              </p>
+            <div className="mt-8 border border-white/10 bg-ybit-black p-5 flex flex-col-2 gap-4 items-center justify-between md:flex-row">
+              <div>
+                <p className="text-xs uppercase tracking-[0.24em] text-ybit-muted">
+                  Payment rail
+                </p>
+                <p className="mt-3 text-2xl font-semibold text-white">
+                  M-Pesa Daraja
+                </p>
+                <p className="mt-2 text-sm text-ybit-muted">
+                  STK Push first, manual Paybill later.
+                </p>
+              </div>
+
+              <Image
+                src="/MENGO/M-PESA-logo-2.png"
+                alt="M-Pesa logo"
+                width={100}
+                height={40}
+                className="h-auto w-auto object-contain scale:150"
+              />
             </div>
             <Button href="#tickets" variant="ghost" className="mt-8 w-full">
-              Browse Upcoming
+              Browse Upcoming Events
             </Button>
           </div>
         </div>
