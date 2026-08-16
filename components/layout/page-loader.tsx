@@ -75,7 +75,7 @@ export function PageLoader() {
           alt="Ybit Entertainment logo"
           width={180}
           height={180}
-          className="h-auto w-auto object-contain scale-150"
+          className="h-auto w-auto object-contain scale-150 md:scale-200"
         />
       </div>
       <div className="relative flex h-full flex-col justify-end p-6 md:p-10">

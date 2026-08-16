@@ -86,7 +86,7 @@ export function BookingSection() {
               For public events with tiers, live slot availability, M-Pesa STK
               Push, confirmations, and QR access passes.
             </p>
-            <div className="mt-8 border border-white/10 bg-ybit-black p-5 flex flex-col-2 gap-4 items-center justify-between md:flex-row">
+            <div className="mt-8 border border-white/10 bg-ybit-black p-5 flex md:flex-col gap-4">
               <div>
                 <p className="text-xs uppercase tracking-[0.24em] text-ybit-muted">
                   Payment rail
