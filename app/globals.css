@@ -31,6 +31,27 @@
   --ybit-indigo: #4F46E5;
   --ybit-green: #059669;
 }
+/* scroll bar customisation */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ybit-rose) rgba(0, 0, 0, 0); /* Fixed transparent bug */
+}
+
+/* Chrome, Safari, Edge, and Opera */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ybit-rose);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ybit-rose);
+}
 
 /* Smooth theme transition */
 body, header, footer, section, aside, div, p, span, h1, h2, h3, h4, h5, h6, a, button, input, textarea, select {
@@ -40,7 +61,7 @@ body, header, footer, section, aside, div, p, span, h1, h2, h3, h4, h5, h6, a, b
 }
 
 /* Film Grain Overlay */
-@keyframes noise-anim {
+/* @keyframes noise-anim {
   0% { transform: translate(0, 0); }
   10% { transform: translate(-1%, -1%); }
   20% { transform: translate(-2%, 1%); }
@@ -68,7 +89,7 @@ body, header, footer, section, aside, div, p, span, h1, h2, h3, h4, h5, h6, a, b
   z-index: 9999;
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   animation: noise-anim 0.5s steps(5) infinite;
-}
+} */
 
 
 @theme inline {
