@@ -43,8 +43,9 @@ export function HeroSection() {
         loop
         playsInline
       />
-      <div className="absolute inset-0 ybit-grid opacity-40" />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.98),rgba(5,5,5,0.42)_58%,rgba(5,5,5,0.9)),linear-gradient(180deg,rgba(5,5,5,0.12),rgba(5,5,5,1))]" />
+      <div className="absolute inset-0  opacity-40" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255, 255, 255, 0.05),rgba(255, 255, 255, 0.05)_58%,rgba(255, 255, 255, 0.05)),linear-gradient(180deg,rgba(255, 255, 255, 0.05),rgba(255, 255, 255, 0.05))]
+" />
 
       <div className="ybit-container relative z-10 flex min-h-[100svh] items-end pb-12 pt-32 md:pb-20">
         <div className="grid w-full gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
@@ -52,7 +53,7 @@ export function HeroSection() {
             <p data-hero-kicker className="mb-7 text-xs font-bold uppercase tracking-[0.34em] text-ybit-rose">
               Westlands, Nairobi · Est. 25 August 2019
             </p>
-            <h1 className="font-serif text-[clamp(4.25rem,10vw,10.5rem)] font-semibold leading-[0.78] tracking-[-0.065em] text-ybit-ivory">
+            <h1 className="font-serif text-[clamp(4.25rem,10vw,10.5rem)] font-semibold leading-[0.98] tracking-[-0.065em] text-ybit-custom ">
               <span className="block overflow-hidden"><span data-hero-line className="block">Events with</span></span>
               <span className="block overflow-hidden text-ybit-rose"><span data-hero-line className="block">a pulse.</span></span>
             </h1>
@@ -67,7 +68,7 @@ export function HeroSection() {
 
           <aside data-hero-aside className="hidden border-l border-ybit-line pl-8 lg:block">
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-ybit-muted">Platform direction</p>
-            <p className="mt-4 max-w-sm font-serif text-3xl leading-tight text-ybit-ivory">
+            <p className="mt-4 max-w-sm font-serif text-3xl leading-tight text-ybit-custom">
               Premium planning, public access, M-Pesa checkout, and merch drops in one event house.
             </p>
           </aside>
