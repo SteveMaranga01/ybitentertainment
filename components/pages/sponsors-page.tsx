@@ -27,34 +27,34 @@ export function SponsorsPage() {
           />
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {sponsors.map((sponsor) => (
-              <article key={sponsor.name} className="border border-white/10 bg-ybit-charcoal p-7">
+              <article key={sponsor.name} className="border border-ybit-line bg-ybit-charcoal p-7">
                 <div className="grid size-16 place-items-center border border-ybit-gold bg-ybit-gold text-xl font-black text-ybit-black">
                   {sponsor.name.slice(0, 2).toUpperCase()}
                 </div>
                 <p className="mt-8 text-xs font-bold uppercase tracking-[0.22em] text-ybit-gold">
                   {sponsor.category}
                 </p>
-                <h3 className="mt-4 font-serif text-3xl text-white">{sponsor.name}</h3>
+                <h3 className="mt-4 font-serif text-3xl text-ybit-ivory">{sponsor.name}</h3>
                 <p className="mt-4 text-sm leading-7 text-ybit-muted">{sponsor.note}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
-      <section className="border-y border-white/10 bg-ybit-charcoal py-24 md:py-32">
+      <section className="border-y border-ybit-line bg-ybit-charcoal py-24 md:py-32">
         <div className="ybit-container grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <SectionIntro
             eyebrow="Sponsor tiers"
             title="Give every partner a clear access lane."
             text="The frontend should support logos, tier descriptions, benefits, budgets, and event-specific sponsor interest."
           />
-          <div className="grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2">
+          <div className="grid gap-px border border-ybit-line bg-ybit-line sm:grid-cols-2">
             {sponsorTiers.map((tier) => (
               <div key={tier} className="bg-ybit-black p-7">
                 <p className="text-xs font-bold uppercase tracking-[0.22em] text-ybit-muted">
                   Partnership
                 </p>
-                <h3 className="mt-4 font-serif text-3xl text-white">{tier}</h3>
+                <h3 className="mt-4 font-serif text-3xl text-ybit-ivory">{tier}</h3>
               </div>
             ))}
           </div>

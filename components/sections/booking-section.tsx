@@ -12,14 +12,14 @@ export function BookingSection() {
   return (
     <section
       id="booking"
-      className="border-y border-white/10 bg-ybit-charcoal py-24 md:py-32"
+      className="border-y border-ybit-line bg-ybit-charcoal py-24 md:py-32"
     >
       <div className="ybit-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div className=" p-8 md:p-10">
           <p className="text-xs font-bold uppercase tracking-[0.34em] text-ybit-gold">
             Booking
           </p>
-          <h2 className="mt-5 font-serif text-4xl leading-tight text-white sm:text-5xl md:text-6xl">
+          <h2 className="mt-5 font-serif text-4xl leading-tight text-ybit-ivory sm:text-5xl md:text-6xl">
             Two doors into the Ybit world.
           </h2>
           <p className="mt-6 max-w-xl leading-8 text-ybit-muted">
@@ -31,14 +31,14 @@ export function BookingSection() {
             <span className="border border-ybit-gold/30 px-3 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-ybit-gold">
               Private events
             </span>
-            <span className="border border-white/10 px-3 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-ybit-ivory">
+            <span className="border border-ybit-line px-3 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-ybit-ivory">
               Public access
             </span>
           </div>
         </div>
 
         <div className="grid gap-4 xl:grid-cols-2">
-          <div className="border border-ybit-gold/40 bg-ybit-black p-7 md:p-8 shadow-[0_0_0_1px_rgba(255,255,255,0.04)]">
+          <div className="border border-ybit-gold/40 bg-ybit-black p-7 md:p-8 shadow-[0_0_0_1px_var(--ybit-line)]">
             <div className="flex items-center justify-between gap-4">
               <span className="text-xs font-bold uppercase tracking-[0.24em] text-ybit-gold">
                 Plan an Event
@@ -47,7 +47,7 @@ export function BookingSection() {
                 Concierge
               </span>
             </div>
-            <h3 className="mt-5 font-serif text-3xl text-white sm:text-4xl">
+            <h3 className="mt-5 font-serif text-3xl text-ybit-ivory sm:text-4xl">
               Concierge inquiry
             </h3>
             <p className="mt-4 text-sm leading-7 text-ybit-muted">
@@ -58,7 +58,7 @@ export function BookingSection() {
               {planningFields.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center justify-between border-b border-white/10 pb-3"
+                  className="flex items-center justify-between border-b border-ybit-line pb-3"
                 >
                   <span>{item}</span>
                   <span className="text-ybit-muted">Required</span>
@@ -70,28 +70,28 @@ export function BookingSection() {
             </Button>
           </div>
 
-          <div className="border border-white/10 bg-white/[0.03] p-7 md:p-8">
+          <div className="border border-ybit-line bg-white/[0.03] p-7 md:p-8">
             <div className="flex items-center justify-between gap-4">
               <span className="text-xs font-bold uppercase tracking-[0.24em] text-ybit-blue">
                 Attend an Event
               </span>
-              <span className="border border-white/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-ybit-muted">
+              <span className="border border-ybit-line px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-ybit-muted">
                 Live access
               </span>
             </div>
-            <h3 className="mt-5 font-serif text-3xl text-white sm:text-4xl">
+            <h3 className="mt-5 font-serif text-3xl text-ybit-ivory sm:text-4xl">
               Ticket access
             </h3>
             <p className="mt-4 text-sm leading-7 text-ybit-muted">
               For public events with tiers, live slot availability, M-Pesa STK
               Push, confirmations, and QR access passes.
             </p>
-            <div className="mt-8 border border-white/10 bg-ybit-black p-5 flex md:flex-col gap-4">
+            <div className="mt-8 border border-ybit-line bg-ybit-black p-5 flex md:flex-col gap-4">
               <div>
                 <p className="text-xs uppercase tracking-[0.24em] text-ybit-muted">
                   Payment rail
                 </p>
-                <p className="mt-3 text-2xl font-semibold text-white">
+                <p className="mt-3 text-2xl font-semibold text-ybit-ivory">
                   M-Pesa Daraja
                 </p>
                 <p className="mt-2 text-sm text-ybit-muted">

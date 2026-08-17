@@ -29,14 +29,14 @@ export function EventDetailPage({ slug }: { slug: string }) {
             <p className="text-xs font-bold uppercase tracking-[0.34em] text-ybit-gold">
               {event.category} · {event.status}
             </p>
-            <h1 className="mt-6 font-serif text-6xl leading-[0.95] text-white md:text-8xl">
+            <h1 className="mt-6 font-serif text-6xl leading-[0.95] text-ybit-ivory md:text-8xl">
               {event.title}
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-ybit-muted">
               {event.summary}
             </p>
           </div>
-          <aside className="border border-white/10 bg-ybit-black/70 p-6 backdrop-blur-xl">
+          <aside className="border border-ybit-line bg-ybit-black/70 p-6 backdrop-blur-xl">
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-ybit-muted">
               Event details
             </p>
@@ -47,9 +47,9 @@ export function EventDetailPage({ slug }: { slug: string }) {
                 ["Venue", event.venue],
                 ["From", event.startingPrice],
               ].map(([label, value]) => (
-                <div key={label} className="flex justify-between border-b border-white/10 pb-3">
+                <div key={label} className="flex justify-between border-b border-ybit-line pb-3">
                   <dt className="text-ybit-muted">{label}</dt>
-                  <dd className="font-semibold text-white">{value}</dd>
+                  <dd className="font-semibold text-ybit-ivory">{value}</dd>
                 </div>
               ))}
             </dl>
@@ -66,16 +66,16 @@ export function EventDetailPage({ slug }: { slug: string }) {
             <p className="text-xs font-bold uppercase tracking-[0.34em] text-ybit-gold">
               Ticket tiers
             </p>
-            <h2 className="mt-5 font-serif text-5xl text-white md:text-7xl">
+            <h2 className="mt-5 font-serif text-5xl text-ybit-ivory md:text-7xl">
               Select your access level.
             </h2>
-            <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
+            <div className="mt-10 divide-y divide-ybit-line border-y border-ybit-line">
               {event.tiers.map((tier) => (
                 <div
                   key={tier.name}
                   className="grid gap-4 py-5 md:grid-cols-[1fr_1.1fr_auto_auto] md:items-center"
                 >
-                  <p className="text-sm font-bold uppercase tracking-[0.16em] text-white">
+                  <p className="text-sm font-bold uppercase tracking-[0.16em] text-ybit-ivory">
                     {tier.name}
                   </p>
                   <p className="text-sm text-ybit-muted">{tier.access}</p>

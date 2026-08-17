@@ -28,13 +28,13 @@ export function AboutPage() {
             title="The event house started with a simple belief."
             text="A good event is not only decor, sound, or a crowd. It is timing, hospitality, movement, anticipation, and the quiet confidence of a team that knows where every detail belongs."
           />
-          <div className="grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2">
+          <div className="grid gap-px border border-ybit-line bg-ybit-line sm:grid-cols-2">
             {facts.map(([label, value]) => (
               <div key={label} className="bg-ybit-charcoal p-7">
                 <p className="text-xs font-bold uppercase tracking-[0.22em] text-ybit-muted">
                   {label}
                 </p>
-                <p className="mt-4 font-serif text-3xl text-white">{value}</p>
+                <p className="mt-4 font-serif text-3xl text-ybit-ivory">{value}</p>
               </div>
             ))}
           </div>

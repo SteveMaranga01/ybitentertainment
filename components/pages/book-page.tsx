@@ -45,7 +45,7 @@ export function BookPage() {
           />
         </div>
       </section>
-      <section id="attend" className="border-y border-white/10 bg-ybit-charcoal py-24 md:py-32">
+      <section id="attend" className="border-y border-ybit-line bg-ybit-charcoal py-24 md:py-32">
         <div className="ybit-container">
           <SectionIntro
             eyebrow="Attend an event"

@@ -75,7 +75,7 @@ export function ExperienceSection() {
             <Link
               key={experience.title}
               href={experienceLinks[index]}
-              className="group relative min-h-[460px] overflow-hidden border border-white/10 bg-ybit-charcoal lg:min-h-[540px] lg:w-[min(68vw,840px)]"
+              className="group relative min-h-[460px] overflow-hidden border border-ybit-line bg-ybit-charcoal lg:min-h-[540px] lg:w-[min(68vw,840px)]"
             >
               <Image
                 src={experience.image}
@@ -89,12 +89,12 @@ export function ExperienceSection() {
                 <p className="text-xs font-bold uppercase tracking-[0.28em] text-ybit-rose">
                   0{index + 1} / {experience.label}
                 </p>
-                <span className="grid size-10 place-items-center rounded-full border border-white/25 text-lg transition duration-300 group-hover:border-ybit-rose group-hover:bg-ybit-rose group-hover:text-ybit-black">
+                <span className="grid size-10 place-items-center rounded-full border border-ybit-line text-lg transition duration-300 group-hover:border-ybit-rose group-hover:bg-ybit-rose group-hover:text-ybit-black">
                   ↗
                 </span>
               </div>
               <div className="absolute inset-x-0 bottom-0 p-7 md:p-10">
-                <h3 className="font-serif text-5xl leading-none text-white md:text-7xl">
+                <h3 className="font-serif text-5xl leading-none text-ybit-ivory md:text-7xl">
                   {experience.title}
                 </h3>
                 <p className="mt-5 max-w-md text-sm leading-7 text-ybit-muted transition duration-300 group-hover:text-ybit-ivory">

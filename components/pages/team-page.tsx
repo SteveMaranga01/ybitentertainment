@@ -27,7 +27,7 @@ export function TeamPage() {
             <p className="text-xs font-bold uppercase tracking-[0.32em] text-ybit-gold">
               Leadership
             </p>
-            <h2 className="mt-5 font-serif text-6xl text-white">{leader.name}</h2>
+            <h2 className="mt-5 font-serif text-6xl text-ybit-ivory">{leader.name}</h2>
             <p className="mt-3 text-sm font-bold uppercase tracking-[0.2em] text-ybit-muted">
               {leader.role}
             </p>
@@ -35,7 +35,7 @@ export function TeamPage() {
           </div>
         </div>
       </section>
-      <section className="border-y border-white/10 bg-ybit-charcoal py-24 md:py-32">
+      <section className="border-y border-ybit-line bg-ybit-charcoal py-24 md:py-32">
         <div className="ybit-container">
           <SectionIntro
             eyebrow="Core roles"
@@ -44,12 +44,12 @@ export function TeamPage() {
           />
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {members.map((member) => (
-              <article key={member.role} className="border border-white/10 bg-ybit-black">
+              <article key={member.role} className="border border-ybit-line bg-ybit-black">
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <Image src={member.image} alt={member.name} fill className="object-cover opacity-75" />
                 </div>
                 <div className="p-6">
-                  <h3 className="font-serif text-3xl text-white">{member.name}</h3>
+                  <h3 className="font-serif text-3xl text-ybit-ivory">{member.name}</h3>
                   <p className="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-ybit-gold">
                     {member.role}
                   </p>

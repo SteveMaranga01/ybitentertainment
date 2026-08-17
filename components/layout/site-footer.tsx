@@ -12,7 +12,7 @@ const footerLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/10 bg-ybit-black py-12">
+    <footer className="border-t border-ybit-line bg-ybit-black py-12">
       <div className="ybit-container grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
         <div>
           <Link href="/" className="inline-flex items-center gap-3">
@@ -20,7 +20,7 @@ export function SiteFooter() {
               YB
             </span>
             <span>
-              <span className="block text-sm font-bold uppercase tracking-[0.24em] text-white">
+              <span className="block text-sm font-bold uppercase tracking-[0.24em] text-ybit-ivory">
                 Ybit Entertainment
               </span>
               <span className="block text-xs uppercase tracking-[0.24em] text-ybit-muted">
@@ -37,7 +37,7 @@ export function SiteFooter() {
         <div className="flex flex-col items-start gap-5 md:items-end">
           <div className="flex flex-wrap gap-x-5 gap-y-3 text-xs font-semibold uppercase tracking-[0.18em] text-ybit-muted md:justify-end">
             {footerLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="hover:text-white">
+              <Link key={link.href} href={link.href} className="hover:text-ybit-ivory">
                 {link.label}
               </Link>
             ))}

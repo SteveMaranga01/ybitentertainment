@@ -31,19 +31,19 @@ export function CategoryPage({ slug }: { slug: string }) {
             title="Designed as a complete experience."
             text="Each package can expand or contract depending on venue, audience size, guest movement, production needs, and media requirements."
           />
-          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
+          <div className="grid gap-px overflow-hidden border border-ybit-line bg-ybit-line sm:grid-cols-2">
             {category.services.map((service) => (
               <div key={service} className="bg-ybit-charcoal p-7">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-ybit-gold">
                   Included focus
                 </p>
-                <h3 className="mt-5 font-serif text-3xl text-white">{service}</h3>
+                <h3 className="mt-5 font-serif text-3xl text-ybit-ivory">{service}</h3>
               </div>
             ))}
           </div>
         </div>
       </section>
-      <section className="border-y border-white/10 bg-ybit-charcoal py-24 md:py-32">
+      <section className="border-y border-ybit-line bg-ybit-charcoal py-24 md:py-32">
         <div className="ybit-container">
           <SectionIntro
             eyebrow="Packages"
@@ -52,11 +52,11 @@ export function CategoryPage({ slug }: { slug: string }) {
           />
           <div className="mt-12 grid gap-5 lg:grid-cols-3">
             {planningPackages.map((item) => (
-              <article key={item.title} className="border border-white/10 bg-ybit-black p-7">
+              <article key={item.title} className="border border-ybit-line bg-ybit-black p-7">
                 <p className="text-xs font-bold uppercase tracking-[0.22em] text-ybit-muted">
                   {item.price}
                 </p>
-                <h3 className="mt-5 font-serif text-4xl text-white">{item.title}</h3>
+                <h3 className="mt-5 font-serif text-4xl text-ybit-ivory">{item.title}</h3>
                 <p className="mt-5 text-sm leading-7 text-ybit-muted">{item.bestFor}</p>
               </article>
             ))}
@@ -69,7 +69,7 @@ export function CategoryPage({ slug }: { slug: string }) {
       <section className="bg-ybit-black py-24 md:py-32">
         <div className="ybit-container grid gap-5 md:grid-cols-3">
           {galleryImages.slice(0, 3).map((image, index) => (
-            <div key={image} className="relative min-h-[420px] overflow-hidden border border-white/10">
+            <div key={image} className="relative min-h-[420px] overflow-hidden border border-ybit-line">
               <Image
                 src={image}
                 alt={`${category.title} proof ${index + 1}`}

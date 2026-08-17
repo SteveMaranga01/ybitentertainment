@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -82,7 +83,7 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 py-3 md:px-5">
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between border border-white/10 bg-ybit-black/75 px-4 py-1.5 backdrop-blur-2xl md:px-6">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between border border-ybit-line bg-ybit-black/75 px-4 py-1.5 backdrop-blur-2xl md:px-6">
         <Link
           href="/"
           aria-label="Ybit Entertainment home"
@@ -198,20 +199,23 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="hidden lg:block">
-          <Button href="/book" className="min-h-10 px-4 text-[10px]">
-            Book an event
-          </Button>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <div className="hidden lg:block">
+            <Button href="/book" className="min-h-10 px-4 text-[10px]">
+              Book an event
+            </Button>
+          </div>
+          <button
+            type="button"
+            aria-label={isOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen(!isOpen)}
+            className="grid size-10 place-items-center text-ybit-ivory lg:hidden"
+          >
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
-        <button
-          type="button"
-          aria-label={isOpen ? "Close navigation" : "Open navigation"}
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen(!isOpen)}
-          className="grid size-10 place-items-center text-ybit-ivory lg:hidden"
-        >
-          {isOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
       </div>
 
       <AnimatePresence>

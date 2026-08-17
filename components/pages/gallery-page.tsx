@@ -18,7 +18,7 @@ export function GalleryPage() {
       <section className="bg-ybit-black py-24 md:py-32">
         <div className="ybit-container columns-1 gap-5 sm:columns-2 lg:columns-3">
           {galleryImages.map((image, index) => (
-            <div key={image} className="mb-5 break-inside-avoid overflow-hidden border border-white/10 bg-ybit-charcoal">
+            <div key={image} className="mb-5 break-inside-avoid overflow-hidden border border-ybit-line bg-ybit-charcoal">
               <Image
                 src={image}
                 alt={`Ybit event gallery image ${index + 1}`}

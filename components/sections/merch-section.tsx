@@ -4,7 +4,7 @@ import { SectionIntro } from "@/components/sections/section-intro";
 
 export function MerchSection() {
   return (
-    <section id="merch" className="border-y border-white/10 bg-ybit-charcoal py-24 md:py-32">
+    <section id="merch" className="border-y border-ybit-line bg-ybit-charcoal py-24 md:py-32">
       <div className="ybit-container">
         <SectionIntro
           eyebrow="Merch"
@@ -13,7 +13,7 @@ export function MerchSection() {
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {merchItems.map((item) => (
-            <article key={item.name} className="group border border-white/10 bg-ybit-black">
+            <article key={item.name} className="group border border-ybit-line bg-ybit-black">
               <div className="relative aspect-[4/5] overflow-hidden">
                 <Image
                   src={item.image}
@@ -27,7 +27,7 @@ export function MerchSection() {
                 <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-ybit-gold">
                   {item.type}
                 </p>
-                <h3 className="mt-3 text-lg font-semibold text-white">
+                <h3 className="mt-3 text-lg font-semibold text-ybit-ivory">
                   {item.name}
                 </h3>
                 <p className="mt-3 text-sm text-ybit-muted">Coming soon</p>

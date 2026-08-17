@@ -8,7 +8,7 @@ export function EventCard({ event }: { event: EventItem }) {
   return (
     <Link
       href={`/events/${event.slug}`}
-      className="group block border border-white/10 bg-ybit-charcoal"
+      className="group block border border-ybit-line bg-ybit-charcoal"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
@@ -26,13 +26,13 @@ export function EventCard({ event }: { event: EventItem }) {
         <p className="text-xs font-bold uppercase tracking-[0.24em] text-ybit-muted">
           {event.category} · {event.date}
         </p>
-        <h3 className="mt-4 font-serif text-4xl text-white">{event.title}</h3>
+        <h3 className="mt-4 font-serif text-4xl text-ybit-ivory">{event.title}</h3>
         <p className="mt-4 text-sm leading-7 text-ybit-muted">{event.summary}</p>
         <div className="mt-6 flex flex-wrap gap-3 text-xs font-bold uppercase tracking-[0.16em]">
-          <span className="border border-white/10 px-3 py-2 text-ybit-ivory">
+          <span className="border border-ybit-line px-3 py-2 text-ybit-ivory">
             {event.startingPrice}
           </span>
-          <span className="border border-white/10 px-3 py-2 text-ybit-muted">
+          <span className="border border-ybit-line px-3 py-2 text-ybit-muted">
             {event.slots}
           </span>
         </div>

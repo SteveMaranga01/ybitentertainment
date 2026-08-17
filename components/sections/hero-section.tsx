@@ -52,7 +52,7 @@ export function HeroSection() {
             <p data-hero-kicker className="mb-7 text-xs font-bold uppercase tracking-[0.34em] text-ybit-rose">
               Westlands, Nairobi · Est. 25 August 2019
             </p>
-            <h1 className="font-serif text-[clamp(4.25rem,10vw,10.5rem)] font-semibold leading-[0.78] tracking-[-0.065em] text-white">
+            <h1 className="font-serif text-[clamp(4.25rem,10vw,10.5rem)] font-semibold leading-[0.78] tracking-[-0.065em] text-ybit-ivory">
               <span className="block overflow-hidden"><span data-hero-line className="block">Events with</span></span>
               <span className="block overflow-hidden text-ybit-rose"><span data-hero-line className="block">a pulse.</span></span>
             </h1>
@@ -65,7 +65,7 @@ export function HeroSection() {
             </div>
           </div>
 
-          <aside data-hero-aside className="hidden border-l border-white/15 pl-8 lg:block">
+          <aside data-hero-aside className="hidden border-l border-ybit-line pl-8 lg:block">
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-ybit-muted">Platform direction</p>
             <p className="mt-4 max-w-sm font-serif text-3xl leading-tight text-ybit-ivory">
               Premium planning, public access, M-Pesa checkout, and merch drops in one event house.

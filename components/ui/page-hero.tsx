@@ -32,14 +32,14 @@ export function PageHero({
               <span className="h-px w-10 bg-ybit-rose" />
               <p className="text-xs font-bold uppercase tracking-[0.32em] text-ybit-rose">{eyebrow}</p>
             </div>
-            <h1 className="max-w-5xl font-serif text-[clamp(4.1rem,10vw,10rem)] font-semibold leading-[0.8] tracking-[-0.06em] text-white">{title}</h1>
+            <h1 className="max-w-5xl font-serif text-[clamp(4.1rem,10vw,10rem)] font-semibold leading-[0.8] tracking-[-0.06em] text-ybit-ivory">{title}</h1>
             <p className="mt-9 max-w-2xl text-base leading-8 text-ybit-muted md:text-lg">{text}</p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Button href={primaryHref}>{primaryLabel}</Button>
               {secondaryHref && secondaryLabel ? <Button href={secondaryHref} variant="ghost">{secondaryLabel}</Button> : null}
             </div>
           </div>
-          <p className="hidden border-l border-white/15 pl-6 text-[10px] font-bold uppercase leading-6 tracking-[0.24em] text-ybit-muted lg:block">
+          <p className="hidden border-l border-ybit-line pl-6 text-[10px] font-bold uppercase leading-6 tracking-[0.24em] text-ybit-muted lg:block">
             Ybit Entertainment<br />Westlands, Nairobi<br />Since 2019
           </p>
         </div>

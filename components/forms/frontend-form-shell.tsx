@@ -10,8 +10,8 @@ export function FrontendFormShell({
   cta: string;
 }) {
   return (
-    <form className="border border-white/10 bg-ybit-black p-6 md:p-8">
-      <h3 className="font-serif text-4xl text-white">{title}</h3>
+    <form className="border border-ybit-line bg-ybit-black p-6 md:p-8">
+      <h3 className="font-serif text-4xl text-ybit-ivory">{title}</h3>
       <p className="mt-4 text-sm leading-7 text-ybit-muted">{description}</p>
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {fields.map((field) => (
@@ -19,7 +19,7 @@ export function FrontendFormShell({
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-ybit-muted">
               {field}
             </span>
-            <span className="mt-2 block border border-white/10 bg-white/[0.03] px-4 py-4 text-sm text-ybit-muted">
+            <span className="mt-2 block border border-ybit-line bg-ybit-ivory/[0.03] px-4 py-4 text-sm text-ybit-muted">
               Backend connected later
             </span>
           </label>

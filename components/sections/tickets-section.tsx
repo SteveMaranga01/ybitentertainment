@@ -7,7 +7,7 @@ export function TicketsSection() {
   return (
     <section id="tickets" className="bg-ybit-black py-24 md:py-36">
       <div className="ybit-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div className="relative min-h-[560px] overflow-hidden  border border-white/10 shadow-2xl">
+        <div className="relative min-h-[560px] overflow-hidden  border border-ybit-line shadow-2xl">
           <Image
             src="/MENGO/IMG-20260715-WA0023.jpg"
             alt="Upcoming Ybit event crowd moment"
@@ -20,7 +20,7 @@ export function TicketsSection() {
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-ybit-rose">
               Next public experience
             </p>
-            <h2 className="mt-4 font-serif text-4xl md:text-5xl text-white">
+            <h2 className="mt-4 font-serif text-4xl md:text-5xl text-ybit-ivory">
               Westlands After Dark
             </h2>
             <p className="mt-4 max-w-md text-sm leading-7 text-ybit-muted">
@@ -35,13 +35,13 @@ export function TicketsSection() {
             title="Tickets should feel like entry bands."
             text="The pricing UI avoids generic cards. Each tier reads as an access decision: name, value, price, scarcity, action."
           />
-          <div className="mt-10 divide-y divide-white/10 border-y border-white/10 bg-ybit-charcoal/50 rounded-2xl p-6 backdrop-blur-md">
+          <div className="mt-10 divide-y divide-ybit-line border-y border-ybit-line bg-ybit-charcoal/50 rounded-2xl p-6 backdrop-blur-md">
             {ticketTiers.map((tier) => (
               <div
                 key={tier.name}
                 className="grid gap-4 py-5 md:grid-cols-[1fr_1.2fr_auto_auto] md:items-center"
               >
-                <p className="text-sm font-bold uppercase tracking-[0.16em] text-white">
+                <p className="text-sm font-bold uppercase tracking-[0.16em] text-ybit-ivory">
                   {tier.name}
                 </p>
                 <p className="text-sm text-ybit-muted">{tier.access}</p>

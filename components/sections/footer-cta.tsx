@@ -4,12 +4,12 @@ export function FooterCTA() {
   return (
     <footer id="footer-cta" className="bg-ybit-black py-20 md:py-28">
       <div className="ybit-container">
-        <div className="grid gap-10 border border-white/10 p-8 md:p-12 lg:grid-cols-[1fr_auto] lg:items-end">
+        <div className="grid gap-10 border border-ybit-line p-8 md:p-12 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.34em] text-ybit-gold">
               Ybit Entertainment
             </p>
-            <h2 className="mt-5 max-w-4xl font-serif text-5xl leading-tight text-white md:text-7xl">
+            <h2 className="mt-5 max-w-4xl font-serif text-5xl leading-tight text-ybit-ivory md:text-7xl">
               Build the next event like people will remember how it felt.
             </h2>
             <p className="mt-6 max-w-2xl leading-8 text-ybit-muted">
