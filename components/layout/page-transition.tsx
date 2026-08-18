@@ -17,7 +17,7 @@ export function PageTransition({ children }: { children: ReactNode }) {
 
       gsap.timeline()
         .set("[data-route-curtain]", { yPercent: 0 })
-        .to("[data-route-curtain]", { yPercent: -105, duration: 0.8, ease: "power4.inOut" })
+        .to("[data-route-curtain]", { yPercent: -105, duration: 1.8, ease: "power4.inOut" })
         .from("[data-route-content]", { y: 22, autoAlpha: 0, duration: 0.65, ease: "power3.out" }, "-=0.42")
         .set("[data-route-content]", { clearProps: "transform,opacity,visibility" });
     },
@@ -31,9 +31,9 @@ export function PageTransition({ children }: { children: ReactNode }) {
         <Image
           src="/nav.png"
           alt="Ybit Entertainment logo"
-          width={120}
-          height={120}
-          className="h-auto w-auto object-contain scale-150"
+          width={180}
+          height={180}
+          className="h-auto w-auto object-cover scale-150 md:scale-200"
         />
       </div>
       <div data-route-content>{children}</div>

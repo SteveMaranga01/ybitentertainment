@@ -69,7 +69,7 @@ export function PageLoader() {
       className="fixed inset-0 z-[100] overflow-hidden bg-ybit-black text-ybit-ivory"
     >
       <div data-loader-gate className="absolute inset-0 ybit-grid" />
-      <div className="pointer-events-none fixed inset-0 z-[91] flex items-center justify-center scale-up-hor-center">
+      <div data-loader-copy className="pointer-events-none fixed inset-0 z-[91] flex items-center justify-center scale-up-hor-center">
         <Image
           src="/nav.png"
           alt="Ybit Entertainment logo"

@@ -13,7 +13,8 @@
   --ybit-gold: var(--ybit-rose);
   --ybit-blue: #3B82F6;
   --ybit-indigo: #6366F1;
-  --ybit-green: #10B981;
+  --ybit-nav: #9CA3AF;
+  --ybit-custom:#F8F4EA;
 }
 
 .light {
@@ -24,12 +25,13 @@
   --ybit-graphite: #E4DEC8;
   --ybit-line: rgba(10, 10, 12, 0.12);
   --ybit-ivory: #0A0A0C;
-  --ybit-muted: #4B5563;
+  --ybit-muted: #848a96;
   --ybit-rose: #FF3366;
   --ybit-gold: var(--ybit-rose);
   --ybit-blue: #2563EB;
   --ybit-indigo: #4F46E5;
-  --ybit-green: #059669;
+  --ybit-nav: #41464e;
+  --ybit-custom:#F8F4EA;
 }
 /* scroll bar customisation */
 html {
@@ -43,7 +45,7 @@ html {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: transparent; /* Fixed transparent bug */
 }
 ::-webkit-scrollbar-thumb {
   background: var(--ybit-rose);
@@ -105,9 +107,10 @@ body, header, footer, section, aside, div, p, span, h1, h2, h3, h4, h5, h6, a, b
   --color-ybit-rose: var(--ybit-rose);
   --color-ybit-blue: var(--ybit-blue);
   --color-ybit-indigo: var(--ybit-indigo);
-  --color-ybit-green: var(--ybit-green);
+  --color-ybit-nav: var(--ybit-nav);
   --font-sans: var(--font-montserrat);
   --font-serif: var(--font-playfair);
+  --color-ybit-custom: var(--ybit-custom);
 }
 
 body {
@@ -138,7 +141,7 @@ video {
 
 .ybit-grid {
   background-image:
-    linear-gradient(to right, rgba(248, 244, 234, 0.045) 1px, transparent 1px),
+    linear-gradient(to right, rgba(248, 244, 234, 0.815) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(248, 244, 234, 0.045) 1px, transparent 1px);
   background-size: 48px 48px;
 }
@@ -168,7 +171,7 @@ video {
 }
 
 .ybit-button__wave--second {
-  background: rgba(233, 34, 200, 0.342);
+  background: rgba(233, 34, 200, 0.966);
   transition-delay: 40ms;
 }
 

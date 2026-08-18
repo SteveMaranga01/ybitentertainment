@@ -101,7 +101,7 @@ export function SiteHeader() {
 
         <nav
           aria-label="Main navigation"
-          className="hidden items-center gap-7 text-[11px] font-semibold uppercase tracking-[0.18em] text-ybit-muted lg:flex"
+          className="hidden items-center gap-7 text-[11px] font-semibold uppercase tracking-[0.18em] text-ybit-nav lg:flex"
         >
           {navItems.map((item) => {
             const current = item.children
@@ -152,9 +152,9 @@ export function SiteHeader() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -12, scale: 0.98 }}
                       transition={panelTransition}
-                      className={`absolute left-1/2 top-full mt-1 grid ${item.label=="Experiences" ? "w-[800px]" : "w-[700px]"} -translate-x-1/2 grid-cols-[0.8fr_1fr_1.2fr] border border-white/10 bg-ybit-charcoal p-2 shadow-2xl`}
+                      className={`absolute left-1/2 top-full mt-1 grid ${item.label=="Experiences" ? "w-[800px]" : "w-[700px]"} -translate-x-1/2 grid-cols-[0.8fr_1fr_1.2fr] border border-foreground/20 bg-ybit-charcoal p-2 shadow-2xl`}
                     >
-                      <div className="border-r border-white/10 p-5">
+                      <div className="border-r border-foreground/20 p-5">
                         <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-ybit-rose">
                           {item.label}
                         </p>
@@ -162,13 +162,13 @@ export function SiteHeader() {
                           {item.description}
                         </p>
                       </div>
-                      <div className="p-2 border-r border-white/10">
+                      <div className="p-2 border-r border-foreground/20">
                         {item.children.map((child, index) => (
                           <Link
                             key={child.href}
                             href={child.href}
                             role="menuitem"
-                            className="group flex items-center justify-between px-4 py-3 text-ybit-muted transition hover:bg-white/[0.05] hover:text-white"
+                            className="group flex items-center justify-between px-4 py-3 text-ybit-nav transition hover:bg-white/[0.05] hover:text-white"
                           >
                             <span>{child.label}</span>
                             <span className="text-ybit-rose transition-transform group-hover:translate-x-1">
@@ -179,8 +179,8 @@ export function SiteHeader() {
                       </div>
                       <div className={`grid place-items-center p-4 ${item.label=="Experiences" ? "py-10":""}`}>
                         <div className="group relative h-50 w-50 overflow-hidden scale-130 rounded-sm transition-transform hover:scale-135">
-                          <div className="absolute inset-0 z-20 flex items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            <p className="text-sm uppercase font-serif text-ybit-ivory">{item.info}</p>
+                          <div className="absolute inset-0 z-20 flex items-center justify-center p-4 text-center ">
+                            <p className="text-sm uppercase font-serif text-ybit-custom">{item.info}</p>
                           </div>
                           <div className="absolute inset-0 z-10 opacity-65 transition-opacity duration-300 group-hover:opacity-100 bg-[linear-gradient(180deg,rgba(5,5,5,0.82),rgba(5,5,5,0.08)_70%),linear-gradient(0deg,rgba(5,5,5,0.72),transparent_58%)]" />
                           <Image
@@ -265,7 +265,7 @@ export function SiteHeader() {
                             <Link
                               key={child.href}
                               href={child.href}
-                              className="text-sm text-ybit-muted"
+                              className="text-sm text-ybit-nav"
                             >
                               {child.label}
                             </Link>

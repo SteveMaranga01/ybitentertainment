@@ -94,10 +94,10 @@ export function ExperienceSection() {
                 </span>
               </div>
               <div className="absolute inset-x-0 bottom-0 p-7 md:p-10">
-                <h3 className="font-serif text-5xl leading-none text-ybit-ivory md:text-7xl">
+                <h3 className="font-serif text-5xl leading-none text-ybit-custom md:text-7xl">
                   {experience.title}
                 </h3>
-                <p className="mt-5 max-w-md text-sm leading-7 text-ybit-muted transition duration-300 group-hover:text-ybit-ivory">
+                <p className="mt-5 max-w-md text-sm leading-7 text-ybit-muted transition duration-300 group-hover:text-ybit-custom">
                   {experience.description}
                 </p>
               </div>

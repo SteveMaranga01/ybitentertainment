@@ -30,7 +30,7 @@ export function GallerySection() {
                 alt={`Ybit gallery moment ${index + 1}`}
                 width={900}
                 height={1200}
-                className="w-full object-cover opacity-80 transition duration-700 hover:scale-[1.02] hover:opacity-100"
+                className="w-full object-cover opacity-95 transition duration-700 hover:scale-[1.02] hover:opacity-100"
               />
             </div>
           ))}

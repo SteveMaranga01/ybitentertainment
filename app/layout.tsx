@@ -59,7 +59,7 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-full flex-col bg-ybit-black text-ybit-ivory">
-        <div className="noise-overlay" />
+        {/* <div className="noise-overlay" /> */}
         <PageLoader />
         <SmoothScroll>
           <SiteHeader />

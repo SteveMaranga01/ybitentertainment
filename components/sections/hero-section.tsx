@@ -44,7 +44,7 @@ export function HeroSection() {
         playsInline
       />
       <div className="absolute inset-0  opacity-40" />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255, 255, 255, 0.05),rgba(255, 255, 255, 0.05)_58%,rgba(255, 255, 255, 0.05)),linear-gradient(180deg,rgba(255, 255, 255, 0.05),rgba(255, 255, 255, 0.05))]
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.82),rgba(5,5,5,0.08)_70%),linear-gradient(0deg,rgba(5,5,5,0.72),transparent_58%)]
 " />
 
       <div className="ybit-container relative z-10 flex min-h-[100svh] items-end pb-12 pt-32 md:pb-20">
@@ -53,7 +53,7 @@ export function HeroSection() {
             <p data-hero-kicker className="mb-7 text-xs font-bold uppercase tracking-[0.34em] text-ybit-rose">
               Westlands, Nairobi · Est. 25 August 2019
             </p>
-            <h1 className="font-serif text-[clamp(4.25rem,10vw,10.5rem)] font-semibold leading-[0.98] tracking-[-0.065em] text-ybit-custom ">
+            <h1 className="font-serif text-[clamp(4.25rem,10vw,10.5rem)] font-semibold leading-[0.98] tracking-[-0.01em] text-ybit-custom ">
               <span className="block overflow-hidden"><span data-hero-line className="block">Events with</span></span>
               <span className="block overflow-hidden text-ybit-rose"><span data-hero-line className="block">a pulse.</span></span>
             </h1>
@@ -62,7 +62,7 @@ export function HeroSection() {
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Button data-hero-action href="#booking">Plan an Event</Button>
-              <Button data-hero-action href="#tickets" variant="ghost">View Tickets</Button>
+              <Button data-hero-action href="#tickets" variant="ghost" className="text-slate-200 border-white/80">View Tickets</Button>
             </div>
           </div>
 
