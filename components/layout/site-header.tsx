@@ -91,7 +91,7 @@ export function SiteHeader() {
         >
           <Image
             alt="Ybit Entertainment"
-            src="/nav.png"
+            src="/foo.png"
             fill
             className="object-cover"
             sizes="128px"

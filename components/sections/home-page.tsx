@@ -6,6 +6,8 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { MerchSection } from "@/components/sections/merch-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { TicketsSection } from "@/components/sections/tickets-section";
+import { Testimonials } from "@/components/sections/testimonials";
+import { FinalCTA } from "@/components/sections/finalCTA"
 
 export function HomePage() {
   return (
@@ -17,6 +19,8 @@ export function HomePage() {
       <MerchSection />
       <ProcessSection />
       <GallerySection />
+      <Testimonials />
+      <FinalCTA/>
       <FooterCTA />
     </>
   );

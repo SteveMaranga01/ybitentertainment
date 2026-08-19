@@ -68,10 +68,11 @@ export function PageLoader() {
       ref={root}
       className="fixed inset-0 z-[100] overflow-hidden bg-ybit-black text-ybit-ivory"
     >
-      <div data-loader-gate className="absolute inset-0 ybit-grid" />
-      <div data-loader-copy className="pointer-events-none fixed inset-0 z-[91] flex items-center justify-center scale-up-hor-center">
+      {/* <div data-loader-gate className="absolute inset-0 ybit-grid" /> */}
+      <div data-loader-copy className="pointer-events-none absolute inset-0 z-[91] flex items-center justify-center scale-up-hor-center">
+
         <Image
-          src="/nav.png"
+          src="/foo.png"
           alt="Ybit Entertainment logo"
           width={180}
           height={180}
@@ -81,7 +82,7 @@ export function PageLoader() {
       <div className="relative flex h-full flex-col justify-end p-6 md:p-10">
         <div
           data-loader-copy
-          className="flex items-end justify-between border-t border-white/15 pt-4"
+          className="flex items-end justify-between border-t border-black/15 pt-4"
         >
           <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-ybit-muted">
             Ybit Entertainment

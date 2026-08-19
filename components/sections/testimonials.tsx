@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { TESTIMONIALS } from "@/lib/constants";
 
-export default function Testimonials() {
+export  function Testimonials() {
   const [current, setCurrent] = useState(0);
 
   const next = () => {
@@ -19,7 +19,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="section-spacing relative overflow-hidden bg-[#0a0a0c]">
+    <section className="section-spacing relative overflow-hidden bg-ybit-black py-24 md:py-32">
       <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"
@@ -41,12 +41,12 @@ export default function Testimonials() {
           <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.32em] text-ybit-rose">
             Testimonials
           </p>
-          <h2 className="text-4xl font-bold text-white md:text-5xl">
+          <h2 className="text-4xl font-serif  text-ybit-ivory md:text-5xl">
             What Our Clients Say
           </h2>
         </motion.div>
 
-        <div className="mx-auto max-w-4xl rounded-[2rem] border border-white/10 bg-[#0d0d0f] p-6 md:p-10">
+        <div className="mx-auto max-w-4xl rounded-[2rem] p-6 md:p-10">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -57,7 +57,7 @@ export default function Testimonials() {
               className="text-center"
             >
               <Quote className="mx-auto mb-6 h-12 w-12 text-ybit-rose opacity-60" />
-              <blockquote className="mb-8 font-serif text-2xl leading-relaxed text-white md:text-3xl">
+              <blockquote className="mb-8 font-serif text-2xl leading-relaxed text-ybit-ivory md:text-3xl">
                 &ldquo;{TESTIMONIALS[current].quote}&rdquo;
               </blockquote>
               <div>
@@ -74,7 +74,7 @@ export default function Testimonials() {
           <div className="mt-10 flex items-center justify-center gap-4">
             <button
               onClick={prev}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 text-white transition-all hover:border-ybit-rose hover:bg-ybit-rose hover:text-ybit-black"
+              className="flex h-12 w-12 cursor-pointer  items-center justify-center rounded-full border border-ybit-rose text-ybit-rose transition-all hover:border-ybit-rose hover:bg-ybit-rose hover:text-white"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -86,7 +86,7 @@ export default function Testimonials() {
                   key={index}
                   onClick={() => setCurrent(index)}
                   className={`h-2 rounded-full transition-all ${
-                    index === current ? "w-6 bg-ybit-rose" : "w-2 bg-white/30 hover:bg-white/50"
+                    index === current ? "w-6 bg-ybit-rose" : "w-2 bg-ybit-rose/30 hover:bg-ybit-rose/50"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -95,7 +95,7 @@ export default function Testimonials() {
 
             <button
               onClick={next}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 text-white transition-all hover:border-ybit-rose hover:bg-ybit-rose hover:text-ybit-black"
+              className="flex h-12 w-12 items-center cursor-pointer justify-center rounded-full border border-ybit-rose hover:text-white transition-all hover:border-ybit-rose hover:bg-ybit-rose text-ybit-rose"
               aria-label="Next testimonial"
             >
               <ChevronRight className="h-5 w-5" />

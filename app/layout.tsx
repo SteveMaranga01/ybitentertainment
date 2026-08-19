@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -33,32 +34,30 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${playfair.variable} h-full antialiased`}
+      suppressHydrationWarning
+      className={`${montserrat.variable} ${playfair.variable} h-full antialiased light`}
     >
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('ybit-theme');
-                  if (theme === 'light') {
-                    document.documentElement.classList.add('light');
-                  } else if (theme === 'dark') {
-                    document.documentElement.classList.remove('light');
-                  } else {
-                    var mq = window.matchMedia('(prefers-color-scheme: light)');
-                    if (mq.matches) {
-                      document.documentElement.classList.add('light');
-                    }
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
+        <Script id="theme-script" strategy="beforeInteractive">
+          {`
+            (function() {
+              try {
+                var savedTheme = localStorage.getItem('ybit-theme');
+                var root = document.documentElement;
+
+                if (savedTheme === 'dark') {
+                  root.classList.remove('light');
+                } else {
+                  root.classList.add('light');
+                }
+              } catch (e) {
+                document.documentElement.classList.add('light');
+              }
+            })();
+          `}
+        </Script>
       </head>
-      <body className="flex min-h-full flex-col bg-ybit-black text-ybit-ivory">
+      <body className="flex min-h-full flex-col bg-[var(--background)] text-[var(--foreground)]">
         {/* <div className="noise-overlay" /> */}
         <PageLoader />
         <SmoothScroll>
