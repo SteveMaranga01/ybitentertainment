@@ -25,7 +25,7 @@ export function PageTransition({ children }: { children: ReactNode }) {
   );
 
   return (
-    <div ref={root} className="relative">
+    <div ref={root} className="relative scrollbar-none">
       <div data-route-curtain className="pointer-events-none fixed inset-0 z-[90] bg-ybit-rose" />
       <div data-route-curtain className="pointer-events-none fixed inset-0 z-[91] flex items-center justify-center">
         <Image

@@ -7,7 +7,7 @@ export function TicketsSection() {
   return (
     <section id="tickets" className="bg-ybit-black py-24 md:py-36">
       <div className="ybit-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div className="relative min-h-[560px] overflow-hidden  border border-ybit-line shadow-2xl">
+        <div className="relative min-h-[600px] overflow-hidden  border border-ybit-line shadow-2xl">
           <Image
             src="/MENGO/IMG-20260715-WA0023.jpg"
             alt="Upcoming Ybit event crowd moment"
@@ -15,7 +15,7 @@ export function TicketsSection() {
             className="object-cover opacity-85"
             sizes="(min-width: 1024px) 45vw, 100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-ybit-black via-ybit-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ybit-black via-ybit-black/10 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-ybit-rose">
               Next public experience

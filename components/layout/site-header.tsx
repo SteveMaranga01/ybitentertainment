@@ -82,7 +82,7 @@ export function SiteHeader() {
     href === "/" ? pathname === href : pathname.startsWith(href);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-3 py-3 md:px-5">
+    <header className="fixed inset-x-0 top-0 z-50">
       <div className="mx-auto flex max-w-[1440px] items-center justify-between border border-ybit-line bg-ybit-black/75 px-4 py-1.5 backdrop-blur-2xl md:px-6">
         <Link
           href="/"
