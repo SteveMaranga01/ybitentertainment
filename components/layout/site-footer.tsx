@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -30,11 +31,17 @@ export function SiteFooter() {
     <footer className="overflow-hidden border-t border-ybit-line bg-ybit-black py-10 md:py-16">
       <div className="ybit-container">
         <div className="relative overflow-hidden rounded-[2rem] bg-ybit-rose px-6 py-8 text-ybit-black sm:px-10 sm:py-10 md:rounded-[3rem] md:px-14 md:py-12">
-          <div className="relative z-10 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+          <div className="relative z-10 grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
             <div>
               <Link href="/" className="inline-flex items-center gap-3" aria-label="Ybit Entertainment home">
-                <span className="grid size-10 place-items-center bg-ybit-black text-sm font-black text-ybit-rose">
-                  YB
+                <span className="relative block h-14 w-28 shrink-0 overflow-hidden ">
+                  <Image
+                    src="/nav.png"
+                    alt="Ybit Entertainment"
+                    fill
+                    className="object-cover"
+                    sizes="128px"
+                  />
                 </span>
                 <span>
                   <span className="block text-sm font-bold uppercase tracking-[0.24em]">
@@ -56,8 +63,8 @@ export function SiteFooter() {
               </Button>
             </div>
 
-            <div className="grid gap-8 sm:grid-cols-3 lg:pt-1">
-              <div>
+            <div className="grid gap-8 sm:grid-cols-[max-content_1fr_1fr] lg:pt-1">
+              <div className="sm:col-span-1">
                 <h2 className="text-[10px] font-bold uppercase tracking-[0.28em] opacity-60">Navigation</h2>
                 <nav className="mt-4 flex flex-col items-start gap-3 text-xs font-semibold uppercase tracking-[0.14em]" aria-label="Footer navigation">
                   {footerLinks.map((link) => (
@@ -68,7 +75,7 @@ export function SiteFooter() {
                 </nav>
               </div>
 
-              <div>
+              <div className="sm:col-span-1">
                 <h2 className="text-[10px] font-bold uppercase tracking-[0.28em] opacity-60">Connect</h2>
                 <nav className="mt-4 flex flex-col items-start gap-3 text-xs font-semibold uppercase tracking-[0.14em]" aria-label="Footer contact links">
                   {supportLinks.map((link) => (
@@ -84,7 +91,7 @@ export function SiteFooter() {
                 <p className="mt-4 text-sm leading-6 opacity-75">A considered note from the Ybit house, occasionally.</p>
                 <form className="mt-5" onSubmit={handleSubscribe}>
                   <label htmlFor="footer-email" className="sr-only">Email address</label>
-                  <div className="flex border-b border-ybit-black/40 pb-2 focus-within:border-ybit-black">
+                  <div className="flex border-b bg-ybit-black border-ybit-black focus-within:border-ybit-black">
                     <input
                       id="footer-email"
                       name="email"
@@ -92,14 +99,14 @@ export function SiteFooter() {
                       autoComplete="email"
                       required
                       placeholder="Email address"
-                      className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-ybit-black/60"
+                      className="text-black min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-gray/60 pl-2"
                     />
-                    <button type="submit" className="ml-3 shrink-0 text-xs font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ybit-black">
+                    <button type="submit" className="bg-ybit-rose m-[4px_4px_4px_0] p-2 shrink-0 text-xs font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ybit-black cursor-pointer">
                       Submit
                     </button>
                   </div>
                   <p className="mt-3 min-h-5 text-xs opacity-75" aria-live="polite">
-                    {isSubscribed ? "You are on the list." : "No noise. Just the good stuff."}
+                    {isSubscribed ? "Thanks for your interest." : "No noise. Just the good stuff."}
                   </p>
                 </form>
               </div>
