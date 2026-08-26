@@ -15,17 +15,27 @@ export function PageTransition({ children }: { children: ReactNode }) {
     () => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-      gsap.timeline()
-        .set("[data-route-curtain]", { yPercent: 0 })
-        .to("[data-route-curtain]", { yPercent: -105, duration: 1.8, ease: "power4.inOut" })
-        .from("[data-route-content]", { y: 22, autoAlpha: 0, duration: 0.65, ease: "power3.out" }, "-=0.42")
-        .set("[data-route-content]", { clearProps: "transform,opacity,visibility" });
+      gsap
+        .timeline()
+        .set("[data-route-curtain]", { yPercent: 0, autoAlpha: 1, display: "flex" })
+        .to("[data-route-curtain]", {
+          yPercent: -105,
+          duration: 1.8,
+          ease: "power4.inOut",
+        })
+        .from(
+          "[data-route-content]",
+          { y: 16, autoAlpha: 0, duration: 0.6, ease: "power3.out" },
+          "-=0.4",
+        )
+        .set("[data-route-curtain]", { autoAlpha: 0, display: "none" })
+        .set("[data-route-content]", { clearProps: "all" });
     },
     { scope: root, dependencies: [pathname], revertOnUpdate: true },
   );
 
   return (
-    <div ref={root} className="relative scrollbar-none">
+    <div ref={root} className="relative">
       <div data-route-curtain className="pointer-events-none fixed inset-0 z-[90] bg-ybit-rose" />
       <div data-route-curtain className="pointer-events-none fixed inset-0 z-[91] flex items-center justify-center">
         <Image
