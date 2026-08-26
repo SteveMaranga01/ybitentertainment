@@ -15,6 +15,8 @@ export function PageLoader() {
     () => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         setIsVisible(false);
+        (window as unknown as { __ybitLoaderComplete?: boolean }).__ybitLoaderComplete = true;
+        window.dispatchEvent(new CustomEvent("ybit:loader-complete"));
         return;
       }
 
@@ -40,7 +42,14 @@ export function PageLoader() {
             yPercent: -105,
             duration: 0.85,
             ease: "power4.inOut",
-            onComplete: () => setIsVisible(false),
+            onStart: () => {
+              window.dispatchEvent(new CustomEvent("ybit:loader-reveal"));
+            },
+            onComplete: () => {
+              setIsVisible(false);
+              (window as unknown as { __ybitLoaderComplete?: boolean }).__ybitLoaderComplete = true;
+              window.dispatchEvent(new CustomEvent("ybit:loader-complete"));
+            },
           });
       };
 
