@@ -41,7 +41,7 @@ export function ExperienceSection() {
               end: () => `+=${getDistance()}`,
               pin: true,
               scrub: 1,
-              anticipatePin: 1,
+              anticipatePin: 0,
               invalidateOnRefresh: true,
             },
           });
@@ -57,10 +57,10 @@ export function ExperienceSection() {
     <section
       ref={root}
       id="experiences"
-      className="relative overflow-hidden bg-ybit-black py-24 lg:flex lg:min-h-screen lg:items-center lg:py-0"
+      className="relative z-20 overflow-hidden bg-ybit-black py-16 lg:flex lg:h-screen lg:min-h-[580px] lg:flex-col lg:justify-center lg:pt-20 lg:pb-6 lg:py-0"
     >
       <div className="ybit-container w-full lg:max-w-none lg:px-0">
-        <div className="ybit-container lg:mb-14">
+        <div className="ybit-container mb-6 lg:mb-6 xl:mb-10">
           <SectionIntro
             eyebrow="Select an experience"
             title="One house. Different worlds."
@@ -69,13 +69,13 @@ export function ExperienceSection() {
         </div>
         <div
           ref={track}
-          className="mt-14 flex flex-col gap-5 lg:mt-0 lg:w-max lg:flex-row lg:gap-6 lg:pl-[max(1rem,calc((100vw-1440px)/2))]"
+          className="mt-6 flex flex-col gap-5 lg:mt-0 lg:w-max lg:flex-row lg:gap-6 lg:pl-[max(1rem,calc((100vw-1440px)/2))]"
         >
           {experiences.map((experience, index) => (
             <Link
               key={experience.title}
               href={experienceLinks[index]}
-              className="group relative min-h-[460px] overflow-hidden border border-ybit-line bg-ybit-charcoal lg:min-h-[540px] lg:w-[min(68vw,840px)]"
+              className="group relative min-h-[420px] overflow-hidden border border-ybit-line bg-ybit-charcoal lg:min-h-0 lg:h-[clamp(320px,calc(100svh-270px),520px)] lg:w-[min(65vw,780px)] xl:w-[min(68vw,840px)]"
             >
               <Image
                 src={experience.image}
@@ -85,7 +85,7 @@ export function ExperienceSection() {
                 sizes="(min-width: 1024px) 68vw, 100vw"
               />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.82),rgba(5,5,5,0.08)_70%),linear-gradient(0deg,rgba(5,5,5,0.72),transparent_58%)]" />
-              <div className="absolute inset-x-0 top-0 flex items-center justify-between p-6 md:p-8">
+              <div className="absolute inset-x-0 top-0 flex items-center justify-between p-5 sm:p-6 md:p-8">
                 <p className="text-xs font-bold uppercase tracking-[0.28em] text-ybit-rose">
                   0{index + 1} / {experience.label}
                 </p>
@@ -93,11 +93,11 @@ export function ExperienceSection() {
                   ↗
                 </span>
               </div>
-              <div className="absolute inset-x-0 bottom-0 p-7 md:p-10">
-                <h3 className="font-serif text-5xl leading-none text-ybit-custom md:text-7xl">
+              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7 md:p-8 xl:p-10">
+                <h3 className="font-serif text-4xl sm:text-5xl lg:text-5xl xl:text-7xl leading-none text-ybit-custom">
                   {experience.title}
                 </h3>
-                <p className="mt-5 max-w-md text-sm leading-7 text-ybit-muted transition duration-300 group-hover:text-ybit-custom">
+                <p className="mt-3 xl:mt-5 max-w-md text-xs sm:text-sm leading-6 xl:leading-7 text-ybit-muted transition duration-300 group-hover:text-ybit-custom">
                   {experience.description}
                 </p>
               </div>
