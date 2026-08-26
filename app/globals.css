@@ -55,6 +55,14 @@ html {
   background: var(--ybit-rose);
 }
 
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 /* Smooth theme transition */
 body, header, footer, section, aside, div, p, span, h1, h2, h3, h4, h5, h6, a, button, input, textarea, select {
   transition-property: background-color, border-color, color, fill, stroke, box-shadow;
@@ -344,5 +352,25 @@ video {
   100% {
     -webkit-transform: scaleX(1);
             transform: scaleX(1);
+  }
+}
+
+/* Short-screen height adaptations (landscape, split-view & compact viewports <= 700px height) */
+@media (max-height: 700px) {
+  .hero-compact {
+    min-height: 100dvh !important;
+    padding-top: 5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  .hero-compact-title {
+    font-size: clamp(2.75rem, 7.5vw, 6.5rem) !important;
+    line-height: 0.95 !important;
+  }
+  .hero-compact-gap {
+    margin-top: 1rem !important;
+  }
+  .section-compact {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
   }
 }

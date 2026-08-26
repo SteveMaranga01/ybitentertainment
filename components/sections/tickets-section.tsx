@@ -5,9 +5,9 @@ import { SectionIntro } from "@/components/sections/section-intro";
 
 export function TicketsSection() {
   return (
-    <section id="tickets" className="bg-ybit-black py-24 md:py-36">
+    <section id="tickets" className="bg-ybit-black py-16 md:py-36 section-compact">
       <div className="ybit-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div className="relative min-h-[600px] overflow-hidden  border border-ybit-line shadow-2xl">
+        <div className="relative min-h-[380px] sm:min-h-[480px] lg:min-h-[600px] overflow-hidden border border-ybit-line shadow-2xl">
           <Image
             src="/MENGO/IMG-20260715-WA0023.jpg"
             alt="Upcoming Ybit event crowd moment"

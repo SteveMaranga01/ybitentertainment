@@ -5,7 +5,7 @@ const marqueeItems = ["Weddings", "Festivals", "Birthdays", "Merch", "Tickets", 
 
 export function GallerySection() {
   return (
-    <section id="gallery" className="bg-ybit-charcoal py-24 md:py-32">
+    <section id="gallery" className="bg-ybit-charcoal py-16 md:py-32 section-compact">
       <div className="mb-10 overflow-hidden border-y border-ybit-line py-4">
         <div className="marquee-track flex w-max gap-10 text-xs font-bold uppercase tracking-[0.3em] text-ybit-muted">
           {Array.from({ length: 2 }).map((_, index) => (

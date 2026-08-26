@@ -19,7 +19,7 @@ export  function Testimonials() {
   };
 
   return (
-    <section className="section-spacing relative overflow-hidden bg-ybit-black py-24 md:py-32">
+    <section className="section-spacing relative overflow-hidden bg-ybit-black py-16 md:py-32 section-compact">
       <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"

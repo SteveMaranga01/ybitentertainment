@@ -18,9 +18,9 @@ export function TeamPage() {
         secondaryLabel="Partner with Ybit"
       />
       <OfferBanner />
-      <section className="bg-ybit-black py-24 md:py-32">
+      <section className="bg-ybit-black py-16 md:py-32 section-compact">
         <div className="ybit-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-          <div className="relative min-h-[560px] overflow-hidden border border-ybit-gold/40">
+          <div className="relative min-h-[380px] sm:min-h-[460px] lg:min-h-[560px] overflow-hidden border border-ybit-gold/40">
             <Image src={leader.image} alt={leader.name} fill className="object-cover opacity-80" />
           </div>
           <div>

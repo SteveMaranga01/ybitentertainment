@@ -14,7 +14,7 @@ export function EventDetailPage({ slug }: { slug: string }) {
 
   return (
     <main>
-      <section className="relative min-h-[88svh] overflow-hidden pt-28">
+      <section className="relative min-h-[88svh] min-h-[88dvh] overflow-hidden pt-20 md:pt-28">
         <Image
           src={event.image}
           alt={event.title}
@@ -24,15 +24,15 @@ export function EventDetailPage({ slug }: { slug: string }) {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,8,8,0.96),rgba(8,8,8,0.56)_56%,rgba(8,8,8,0.9)),linear-gradient(180deg,rgba(8,8,8,0.2),rgba(8,8,8,1))]" />
-        <div className="ybit-container relative z-10 grid min-h-[calc(88svh-7rem)] gap-10 pb-14 lg:grid-cols-[1fr_420px] lg:items-end">
+        <div className="ybit-container relative z-10 grid min-h-[calc(88dvh-5rem)] gap-8 pb-10 md:pb-14 hero-compact lg:grid-cols-[1fr_420px] lg:items-end">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.34em] text-ybit-gold">
               {event.category} · {event.status}
             </p>
-            <h1 className="mt-6 font-serif text-6xl leading-[0.95] text-ybit-ivory md:text-8xl">
+            <h1 className="hero-compact-title mt-4 font-serif text-5xl leading-[0.95] text-ybit-ivory md:mt-6 md:text-8xl">
               {event.title}
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-ybit-muted">
+            <p className="hero-compact-gap mt-5 max-w-2xl text-base leading-7 text-ybit-muted md:mt-7 md:text-lg md:leading-8">
               {event.summary}
             </p>
           </div>

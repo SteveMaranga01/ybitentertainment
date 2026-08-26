@@ -12,7 +12,7 @@ export function BookingSection() {
   return (
     <section
       id="booking"
-      className="border-y border-ybit-line bg-ybit-charcoal py-24 md:py-32"
+      className="border-y border-ybit-line bg-ybit-charcoal py-16 md:py-32 section-compact"
     >
       <div className="ybit-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div className=" p-8 md:p-10">

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export function FooterCTA() {
   return (
-    <footer id="footer-cta" className="bg-ybit-black py-20 md:py-28">
+    <footer id="footer-cta" className="bg-ybit-black py-16 md:py-28 section-compact">
       <div className="ybit-container">
         <div className="grid gap-10 border border-ybit-line p-8 md:p-12 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>

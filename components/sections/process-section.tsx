@@ -3,7 +3,7 @@ import { SectionIntro } from "@/components/sections/section-intro";
 
 export function ProcessSection() {
   return (
-    <section className="bg-ybit-black py-24 md:py-36">
+    <section className="bg-ybit-black py-16 md:py-36 section-compact">
       <div className="ybit-container">
         <SectionIntro
           eyebrow="Method"

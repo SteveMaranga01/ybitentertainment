@@ -4,7 +4,7 @@ import { SectionIntro } from "@/components/sections/section-intro";
 
 export function MerchSection() {
   return (
-    <section id="merch" className="border-y border-ybit-line bg-ybit-charcoal py-24 md:py-32">
+    <section id="merch" className="border-y border-ybit-line bg-ybit-charcoal py-16 md:py-32 section-compact">
       <div className="ybit-container">
         <SectionIntro
           eyebrow="Merch"

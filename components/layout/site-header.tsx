@@ -227,7 +227,7 @@ export function SiteHeader() {
             transition={panelTransition}
             style={{ transformOrigin: "top" }}
             aria-label="Mobile navigation"
-            className="mx-auto mt-2 max-w-[1440px] overflow-hidden border border-white/10 bg-ybit-charcoal p-4 lg:hidden"
+            className="mx-auto mt-2 max-w-[1440px] max-h-[calc(100dvh-5.5rem)] overflow-y-auto overscroll-contain border border-white/10 bg-ybit-charcoal p-4 lg:hidden"
           >
             {navItems.map((item) => (
               <div

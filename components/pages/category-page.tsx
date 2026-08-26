@@ -66,10 +66,10 @@ export function CategoryPage({ slug }: { slug: string }) {
           </Button>
         </div>
       </section>
-      <section className="bg-ybit-black py-24 md:py-32">
+      <section className="bg-ybit-black py-16 md:py-32 section-compact">
         <div className="ybit-container grid gap-5 md:grid-cols-3">
           {galleryImages.slice(0, 3).map((image, index) => (
-            <div key={image} className="relative min-h-[420px] overflow-hidden border border-ybit-line">
+            <div key={image} className="relative min-h-[300px] sm:min-h-[420px] overflow-hidden border border-ybit-line">
               <Image
                 src={image}
                 alt={`${category.title} proof ${index + 1}`}
