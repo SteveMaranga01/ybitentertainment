@@ -15,19 +15,132 @@ export function HeroSection() {
     () => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-      const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
-      timeline
-        .from("[data-hero-kicker]", { y: 18, autoAlpha: 0, duration: 0.45 })
-        .from("[data-hero-line]", { yPercent: 110, autoAlpha: 0, duration: 0.85, stagger: 0.1 }, "-=0.15")
-        .from("[data-hero-copy]", { y: 20, autoAlpha: 0, duration: 0.5 }, "-=0.45")
-        .from("[data-hero-aside]", { x: 24, autoAlpha: 0, duration: 0.55 }, "-=0.35");
+      // Immediately hide elements so they never flash in their final state before animating
+      gsap.set(
+        [
+          "[data-hero-kicker]",
+          "[data-hero-copy]",
+          "[data-hero-action]",
+          "[data-hero-aside]",
+        ],
+        { autoAlpha: 0, y: 24 },
+      );
+      gsap.set("[data-hero-line]", { autoAlpha: 0, yPercent: 120 });
+
+      let hasPlayed = false;
+      const playEntrance = () => {
+        if (hasPlayed) return;
+        hasPlayed = true;
+
+        const timeline = gsap.timeline({
+          defaults: { ease: "power4.out" },
+          onComplete: () => {
+            gsap.set(
+              [
+                "[data-hero-kicker]",
+                "[data-hero-line]",
+                "[data-hero-copy]",
+                "[data-hero-action]",
+                "[data-hero-aside]",
+              ],
+              { clearProps: "transform,opacity,visibility" },
+            );
+            ScrollTrigger.refresh();
+          },
+        });
+
+        timeline
+          .to("[data-hero-kicker]", {
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.6,
+            ease: "power3.out",
+          })
+          .to(
+            "[data-hero-line]",
+            {
+              yPercent: 0,
+              autoAlpha: 1,
+              duration: 1.1,
+              stagger: 0.14,
+              ease: "power4.out",
+            },
+            "-=0.35",
+          )
+          .to(
+            "[data-hero-copy]",
+            {
+              y: 0,
+              autoAlpha: 1,
+              duration: 0.6,
+              ease: "power3.out",
+            },
+            "-=0.6",
+          )
+          .to(
+            "[data-hero-action]",
+            {
+              y: 0,
+              autoAlpha: 1,
+              duration: 0.55,
+              stagger: 0.1,
+              ease: "power3.out",
+            },
+            "-=0.45",
+          )
+          .to(
+            "[data-hero-aside]",
+            {
+              x: 0,
+              autoAlpha: 1,
+              duration: 0.75,
+              ease: "power3.out",
+            },
+            "-=0.5",
+          );
+      };
 
       gsap.to("[data-hero-video]", {
         yPercent: 12,
         scale: 1.08,
         ease: "none",
-        scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: true },
+        scrollTrigger: {
+          trigger: root.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
       });
+
+      const isLoaderComplete =
+        typeof window !== "undefined" &&
+        Boolean(
+          (window as unknown as { __ybitLoaderComplete?: boolean })
+            .__ybitLoaderComplete,
+        );
+      const isLoaderInDOM =
+        typeof document !== "undefined" &&
+        Boolean(document.querySelector("[data-loader-copy]"));
+
+      if (!isLoaderComplete && isLoaderInDOM) {
+        window.addEventListener("ybit:loader-reveal", playEntrance, {
+          once: true,
+        });
+        window.addEventListener("ybit:loader-complete", playEntrance, {
+          once: true,
+        });
+        const fallbackTimer = window.setTimeout(playEntrance, 3000);
+        return () => {
+          window.removeEventListener("ybit:loader-reveal", playEntrance);
+          window.removeEventListener("ybit:loader-complete", playEntrance);
+          window.clearTimeout(fallbackTimer);
+        };
+      } else {
+        const delayedCall = gsap.delayedCall(0.25, playEntrance);
+        return () => {
+          delayedCall.kill();
+        };
+      }
     },
     { scope: root, dependencies: [] },
   );
